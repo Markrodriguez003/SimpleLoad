@@ -1,0 +1,26 @@
+{
+  "name": "simpleload",
+  "version": "1.0.0",
+  "description": "Simple load file creator for uploading large productions into CSDISCO",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Markrodriguez003/SimpleLoad.git"
+  },
+  "keywords": [
+    "loadfile",
+    "load",
+    "creator",
+    "production",
+    "csdisco"
+  ],
+  "author": "Mark Anthony Patrick Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Markrodriguez003/SimpleLoad/issues"
+  },
+  "homepage": "https://github.com/Markrodriguez003/SimpleLoad#readme"
+}
