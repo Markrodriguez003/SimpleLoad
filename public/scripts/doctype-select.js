@@ -1,0 +1,1 @@
+const textarry = ["test", "test1", "test2"];
