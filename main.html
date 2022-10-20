@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./script.js"></script>
 
-    
-    <title>Simple-Loader</title>
-  </head>
-  <body>
-    <div class="MainPage">
-      <img
-        src="./images/simpleloadguy.png"
-        alt="mail-guy-logo"
-        id="SimpleLoaderLogo"
-      />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./scripts/form.js"></script>
+  <script type="module" src="./data/doctypes.js"></script>
 
-      <form action="#" class="SimpleForm">
-        <h1 style="text-decoration: underline" id="testss">Upload Production</h1>
-        <label
-          for="production-folder"
-          style="font-weight: bold; margin-bottom: 10px"
-          >Select root production folder:</label
-        >
-        <input
-          type="file"
-          id="production-folder"
-          name="production-folder"
-          webkitdirectory="multiple"
-        /><br /><br />
-        <input type="submit" value="Download Load File" style="margin: 10px" id="download-load-f">
-      </form>
-    </div>
 
-    <h2>Selected Files</h2>
+  <title>Simple-Loader</title>
+</head>
 
-    <ul></ul>
-  </body>
+<body>
+  <div class="MainPage">
+    <img src="./images/simpleloadguy.png" alt="mail-guy-logo" id="SimpleLoaderLogo" />
+
+    <form action="#" class="SimpleForm">
+      <h1 style="text-decoration: underline" id="testss">Upload Production</h1>
+      <label for="client-code" style="font-weight: bold; margin-bottom: 10px">Client:</label>
+      <input type="text" id="client-code" name="client-code" />
+
+      <br />
+      <label for="matter-code" style="font-weight: bold; margin-bottom: 10px">Matter:</label>
+      <input type="text" id="matter-code" name="matter-code" />
+
+      <br />
+
+      <label for="author" style="font-weight: bold; margin-bottom: 10px">Author:</label>
+      <select name="author" id="author">
+        <option></option>
+      </select>
+
+      <br />
+      <label for="doctype" style="font-weight: bold; margin-bottom: 10px">Doctype:</label>
+      <select name="doctype" id="doctype">
+        <option></option>
+      </select>
+
+      <br /><br />
+
+
+      <label for="production-folder" style="font-weight: bold; margin-bottom: 10px">Select root production
+        folder:</label>
+      <input type="file" id="production-folder" name="production-folder" webkitdirectory="multiple" /><br /><br />
+      <input type="submit" value="Download Load File" style="margin: 10px" id="download-load-f">
+    </form>
+  </div>
+
+  <h2>Selected Files</h2>
+
+  <ul></ul>
+</body>
+
 </html>
