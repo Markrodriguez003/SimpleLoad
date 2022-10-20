@@ -6,8 +6,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 // https://dev.to/rushankhan1/build-a-cli-with-node-js-4jbi
 // https://stackoverflow.com/questions/43708127/javascript-get-the-filename-and-extension-from-input-type-file
-
-//https://w3c.github.io/FileAPI/#dfn-file
+// https://blog.logrocket.com/how-to-build-a-progressive-web-app-pwa-with-node-js/
+// https://w3c.github.io/FileAPI/#dfn-file
 
 // const testarry = require("../scripts/doctype-select");
 //********************************************************* */
@@ -96,45 +96,6 @@ const dTypes = [
 window.onload = function () {
   console.log("Waiting for files. . .");
 
-  //********************************************************* */
-
-  // ADD ASYNC WAIT
-  // FOLDER UPLOAD
-  // const FINALPRODUCTION = document.getElementById("production-folder");
-  // FINALPRODUCTION.addEventListener(
-  //   "change",
-  //   function (event) {
-  //     var output = document.querySelector("ul");
-  //     var files = event.target.files;
-
-  //     for (var i = 0; i < files.length; i++) {
-  //       var item = document.createElement("li");
-
-  //       item.style.listStyleType = "none";
-  //       item.innerHTML = "/" + files[i].webkitRelativePath;
-  //       output.appendChild(item);
-  //     }
-
-  //     console.log(
-  //       "Grabbing File" +
-  //         " " +
-  //         files[5].name +
-  //         " " +
-  //         files[5].type +
-  //         " " +
-  //         files[5].size +
-  //         " " +
-  //         files[5].lastModified
-  //     );
-
-  //     // ADD CREATE FILE FUNC HERE
-  //     WriteCSVfile(files);
-  //   },
-  //   false
-  // );
-
-  //********************************************************* */
-
   // SELECT OPTION FOR AUTHOR
   const AUTHOR_SELECT = document.getElementById("author");
   AUTHOR_SELECT.addEventListener(
@@ -176,39 +137,36 @@ window.onload = function () {
 
     e.stopPropagation();
     e.preventDefault();
-    
-      var output = document.querySelector("ul");
-      var files = FINALPRODUCTION.files;
 
-      for (var i = 0; i < files.length; i++) {
-        var item = document.createElement("li");
+    var output = document.querySelector("ul");
+    var files = FINALPRODUCTION.files;
 
-        item.style.listStyleType = "none";
-        item.innerHTML = "/" + files[i].webkitRelativePath;
-        output.appendChild(item);
-      }
+    for (var i = 0; i < files.length; i++) {
+      var item = document.createElement("li");
 
-      // TESTING OUTPUT VIA CONSOLE
-      console.log(
-        "Grabbing File" +
-          " " +
-          files[5].name +
-          " " +
-          files[5].type +
-          " " +
-          files[5].size +
-          " " +
-          files[5].lastModified
-      );
+      item.style.listStyleType = "none";
+      item.innerHTML = "/" + files[i].webkitRelativePath;
+      output.appendChild(item);
+    }
 
-    
+    // TESTING OUTPUT VIA CONSOLE
+    console.log(
+      "Grabbing File" +
+        " " +
+        files[5].name +
+        " " +
+        files[5].type +
+        " " +
+        files[5].size +
+        " " +
+        files[5].lastModified
+    );
+
     // DOWNLOADLOADF.href = WriteCSVfile(files[5].name);
-    console.log("THIS IS THE URL --> " + WriteCSVfile(files[5].name));
-
+    // console.log("THIS IS THE URL --> " + WriteCSVfile(files[5].name));
+    
   });
 }; // EOL for OnLoad
-
-
 
 //********************************************************* */
 // FUNCTIONS //
