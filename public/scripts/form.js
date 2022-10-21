@@ -163,22 +163,10 @@ window.onload = function () {
         item.innerHTML = "/" + files[i].webkitRelativePath;
         output.appendChild(item);
       }
-
-      // TESTING OUTPUT VIA CONSOLE
-      console.log(
-        "Grabbing File" +
-          " " +
-          files[5].name +
-          " " +
-          files[5].type +
-          " " +
-          files[5].size +
-          " " +
-          files[5].lastModified
-      );
-
       var exampleData =
         "Loading File" +
+        " " +
+        files[5].webkitRelativePath +
         " " +
         files[5].name +
         " " +
@@ -187,9 +175,10 @@ window.onload = function () {
         files[5].size +
         " " +
         files[5].lastModified;
+      // TESTING OUTPUT VIA CONSOLE
+      console.log(exampleData);
 
 
-        
       console.log("Author: " + AUTHOR_SELECT.value  + "Doctype: " + DOCTYPE_SELECT.value)  
       formatCSV(files);
       var link = document.getElementById("download-load-f");
@@ -222,7 +211,7 @@ window.onload = function () {
 
   function formatCSV(data){
 
-    console.log("Formatting .csv file!");
+    console.log("Formatting .csv file! ");
 
     var formattedCSV = data;
 

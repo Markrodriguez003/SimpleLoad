@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-html {
+* {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.5px;
 }
@@ -45,8 +45,10 @@ html {
   text-decoration: none;
   margin-top: 12px;
   padding: 10px;
-  font-size:18px;
+  font-size:16px;
+  font-weight: bold;
   text-align: center;
+  border:none;
 }
 
 #load-f, #download-load-f {
