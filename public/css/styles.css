@@ -1,40 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-html{
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.5px;
+html {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .MainPage {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
 }
 
 #SimpleLoaderLogo {
-    width: 50%;
-    height: auto;
-    margin: 10px;
-    padding: 10px;
+  width: 50%;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
 }
 
-.QuestionIcon{
-    width: 35px;
-    height: auto;
-    background-color:steelblue; 
-    color: white;
-    font-weight: bold;
-    border-radius: 620px;
+.QuestionIcon {
+  width: 35px;
+  height: auto;
+  background-color: steelblue;
+  color: white;
+  font-weight: bold;
+  border-radius: 620px;
 }
 
-.SimpleForm{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-    margin: 20px;
+.SimpleForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  margin: 20px;
 }
+
+#load-f, #download-load-f {
+  color:white;
+  background-color: steelblue;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+#load-f:focus {
+  /* background-color:red;
+  transform: scale(2px);  */
+}
+
+#load-f:link, #load-f:visited, #load-f:hover, #load-f:active {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+
+
+ 

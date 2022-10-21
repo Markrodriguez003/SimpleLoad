@@ -9,6 +9,8 @@
 // https://blog.logrocket.com/how-to-build-a-progressive-web-app-pwa-with-node-js/
 // https://w3c.github.io/FileAPI/#dfn-file
 
+//********************************************************* */
+
 // const testarry = require("../scripts/doctype-select");
 //********************************************************* */
 // DATA
@@ -94,64 +96,87 @@ const dTypes = [
 // MAIN
 //********************************************************* */
 window.onload = function () {
-  console.log("Waiting for files. . .");
+  console.log("Waiting for files. . . ");
 
   // SELECT OPTION FOR AUTHOR
   const AUTHOR_SELECT = document.getElementById("author");
-  AUTHOR_SELECT.addEventListener(
-    "click",
-    function (event) {
-      for (var y = 0; y < author.length; y++) {
-        var option = document.createElement("option");
-        option.innerHTML = author.sort()[y];
-        option.value = author[y];
-        AUTHOR_SELECT.appendChild(option);
-      }
-    },
-    false
-  );
+  AUTHOR_SELECT &&
+    AUTHOR_SELECT.addEventListener(
+      "click",
+      function (event) {
+        for (var y = 0; y < author.length; y++) {
+          var option = document.createElement("option");
+          option.innerHTML = author.sort()[y];
+          option.value = author[y];
+          AUTHOR_SELECT.appendChild(option);
+        }
+      },
+      false
+    );
 
   //********************************************************* */
-  // SELECT OPTION FOR DOCTYPE
+  // SELECT OPTION FOR DOCTYPE EVENT LISTENER
   const DOCTYPE_SELECT = document.getElementById("doctype");
-  DOCTYPE_SELECT.addEventListener(
-    "click",
-    function (event) {
-      for (var x = 0; x < dTypes.length; x++) {
-        var option = document.createElement("option");
-        option.innerHTML = dTypes.sort()[x];
-        option.value = dTypes[x];
-        DOCTYPE_SELECT.appendChild(option);
-      }
-    },
-    false
-  );
+  DOCTYPE_SELECT &&
+    DOCTYPE_SELECT.addEventListener(
+      "click",
+      function (event) {
+        for (var x = 0; x < dTypes.length; x++) {
+          var option = document.createElement("option");
+          option.innerHTML = dTypes.sort()[x];
+          option.value = dTypes[x];
+          DOCTYPE_SELECT.appendChild(option);
+        }
+      },
+      false
+    );
   //********************************************************* */
 
-  // DOWNLOAD LOAD FILE SUBMISSION
-  const DOWNLOADLOADF = document.getElementById("download-load-f");
+  const DOWNLOAD_LOADF = document.getElementById("load-f");
   const FINALPRODUCTION = document.getElementById("production-folder");
 
-  DOWNLOADLOADF.addEventListener("click", function (e) {
-    console.log("User clicked download load file btn.");
+  // USER LOADS PRODUCTION EVENT LISTENER
+  FINALPRODUCTION &&
+    FINALPRODUCTION.addEventListener("click", function (e) {
+      console.log("Using clicked to submit load file");
+    });
 
-    e.stopPropagation();
-    e.preventDefault();
+  //********************************************************* */
 
-    var output = document.querySelector("ul");
-    var files = FINALPRODUCTION.files;
+  // DOWNLOAD LOAD FILE SUBMISSION EVENT LISTENER
+  DOWNLOAD_LOADF &&
+    DOWNLOAD_LOADF.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-    for (var i = 0; i < files.length; i++) {
-      var item = document.createElement("li");
+      console.log("User clicked download load file btn.");
 
-      item.style.listStyleType = "none";
-      item.innerHTML = "/" + files[i].webkitRelativePath;
-      output.appendChild(item);
-    }
+      var output = document.querySelector("ul");
+      var files = FINALPRODUCTION.files;
 
-    // TESTING OUTPUT VIA CONSOLE
-    console.log(
-      "Grabbing File" +
+      for (var i = 0; i < files.length; i++) {
+        var item = document.createElement("li");
+
+        item.style.listStyleType = "none";
+        item.innerHTML = "/" + files[i].webkitRelativePath;
+        output.appendChild(item);
+      }
+
+      // TESTING OUTPUT VIA CONSOLE
+      console.log(
+        "Grabbing File" +
+          " " +
+          files[5].name +
+          " " +
+          files[5].type +
+          " " +
+          files[5].size +
+          " " +
+          files[5].lastModified
+      );
+
+      var exampleData =
+        "Loading File" +
         " " +
         files[5].name +
         " " +
@@ -159,32 +184,40 @@ window.onload = function () {
         " " +
         files[5].size +
         " " +
-        files[5].lastModified
-    );
+        files[5].lastModified;
 
-    // DOWNLOADLOADF.href = WriteCSVfile(files[5].name);
-    // console.log("THIS IS THE URL --> " + WriteCSVfile(files[5].name));
-    
-  });
-}; // EOL for OnLoad
+      var link = document.getElementById("download-load-f");
+      link.href = writeCSV(JSON.stringify(exampleData));
+      link.style.display = "block";
+      link.style.backgroundColor = "limegreen";
+    });
 
-//********************************************************* */
-// FUNCTIONS //
-//********************************************************* */
+  //********************************************************* */
 
-// READING AND WRITING FILES FUNC
-function WriteCSVfile(data) {
-  var textFile = null;
+  // WRITE CSV LOAD FILE FUNC
 
-  var data = new Blob([data], { type: "text/plain" });
+  function writeCSV(data) {
+    console.log("Writing csv load file. . . ");
+    var loadFile = null;
+    var data = new Blob([data], { type: "text/csv" });
 
-  // If we are replacing a previously generated file we need to
-  // manually revoke the object URL to avoid memory leaks.
-  if (textFile !== null) {
-    window.URL.revokeObjectURL(textFile);
+    if (loadFile !== null) {
+      window.URL.revokeObjectURL(loadFile);
+    }
+
+    loadFile = window.URL.createObjectURL(data);
+
+    console.log("This is the D/L URL --> " + loadFile);
+
+    DOWNLOAD_LOADF.style.display = "none";
+    return loadFile;
   }
 
-  textFile = window.URL.createObjectURL(data);
-
-  return textFile;
-}
+  //********************************************************* */
+  //********************************************************* */
+  //********************************************************* */
+  //*******************EOL************************ */
+  //********************************************************* */
+  //********************************************************* */
+  //********************************************************* */
+}; // EOL for OnLoad

@@ -1,64 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/styles.css" rel="stylesheet" />
+    <title>Simple-Loader</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link  href="/css/styles.css" rel="stylesheet" />
-  <title>Simple-Loader</title>
-</head>
+  <body>
+    <div class="MainPage">
+      <img
+        src="/images/simpleloadguy.png"
+        alt="mail-guy-logo"
+        id="SimpleLoaderLogo"
+      />
 
-<body>
-  <div class="MainPage">
-    <img src="/images/simpleloadguy.png" alt="mail-guy-logo" id="SimpleLoaderLogo" />
+      <form action="#" class="SimpleForm">
+        <h1 style="text-decoration: underline" id="testss">
+          Upload Production
+        </h1>
+        <label for="client-code" style="font-weight: bold; margin-bottom: 10px"
+          >Client:</label
+        >
+        <input type="text" id="client-code" name="client-code" />
 
-    <form action="#" class="SimpleForm">
-      <h1 style="text-decoration: underline" id="testss">Upload Production</h1>
-      <label for="client-code" style="font-weight: bold; margin-bottom: 10px">Client:</label>
-      <input type="text" id="client-code" name="client-code" />
+        <br />
+        <label for="matter-code" style="font-weight: bold; margin-bottom: 10px"
+          >Matter:</label
+        >
+        <input type="text" id="matter-code" name="matter-code" />
 
-      <br />
-      <label for="matter-code" style="font-weight: bold; margin-bottom: 10px">Matter:</label>
-      <input type="text" id="matter-code" name="matter-code" />
+        <br />
 
-      <br />
+        <label for="author" style="font-weight: bold; margin-bottom: 10px"
+          >Author:</label
+        >
+        <select name="author" id="author">
+          <option></option>
+        </select>
 
-      <label for="author" style="font-weight: bold; margin-bottom: 10px">Author:</label>
-      <select name="author" id="author">
-        <option></option>
-      </select>
+        <br />
+        <label for="doctype" style="font-weight: bold; margin-bottom: 10px"
+          >Doctype:</label
+        >
+        <select name="doctype" id="doctype">
+          <option></option>
+        </select>
 
-      <br />
-      <label for="doctype" style="font-weight: bold; margin-bottom: 10px">Doctype:</label>
-      <select name="doctype" id="doctype">
-        <option></option>
-      </select>
+        <br /><br />
 
-      <br /><br />
+        <label
+          for="production-folder"
+          style="font-weight: bold; margin-bottom: 10px"
+          >Select root production folder:</label
+        >
+        <input
+          type="file"
+          id="production-folder"
+          name="production-folder"
+          webkitdirectory="multiple"
+        /><br /><br />
 
+        <a href="#" id="load-f">LOAD PRODUCTION</a>
+        <a download="loadfile.csv" download id="download-load-f" style="display:none">DOWNLOAD LOAD FILE</a>
 
-      <label for="production-folder" style="font-weight: bold; margin-bottom: 10px">Select root production
-        folder:</label>
-      <input type="file" id="production-folder" name="production-folder" webkitdirectory="multiple" /><br /><br />
-      
-        <a href="/download">CLICK ME</a>
+        <!-- <a type="button" download="info.txt" target="_self" download style="margin: 10px" id="download-load-f"> Download Load File </a> -->
+        <!-- <a download="/download" download   style="margin: 10px" id="download-load-f"> Download Load File </a> -->
+        <!-- <a type="button"  href="/images/simpleloadguy.png"  target="_self"  style="margin: 10px; background-color: blue; color:white;" id="download-load-f" download> Download Load File </a> -->
+      </form>
+    </div>
 
-      <!-- <a type="button" download="info.txt" target="_self" download style="margin: 10px" id="download-load-f"> Download Load File </a> -->
-      <!-- <a download="/download" download   style="margin: 10px" id="download-load-f"> Download Load File </a> -->
-      <!-- <a type="button"  href="/images/simpleloadguy.png"  target="_self"  style="margin: 10px; background-color: blue; color:white;" id="download-load-f" download> Download Load File </a> -->
-    
-    
-    
-    </form>
-  </div>
+    <h2>Selected Files</h2>
 
-  <h2>Selected Files</h2>
+    <ul></ul>
 
-  <ul></ul>
-
-  <script src="/scripts/form.js" ></script>
-  <!-- <script type="module" src="../data/doctypes.js"></script> -->
-</body>
-
+    <!-- <script type="module" src="../data/doctypes.js"></script> -->
+  </body>
+  <script async src="/scripts/form.js"></script>
 </html>

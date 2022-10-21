@@ -32,22 +32,22 @@ app.get("/", (req, res) => { res.sendFile(P.join(__dirname, "/public/main.html")
 
 
 // THIS WORKS
-app.get("/download", (req, res) => { 
-    const filePath = __dirname + "/public/images/simpleloadguy.png" ;
-    res.download(
-        filePath, 
-        (err) => {
-            if (err) {
-                res.send({
-                    error : err,
-                    msg   : "Problem downloading the file"
-                })
-            }
-    });
-});
+// app.get("/download", (req, res) => { 
+//     const filePath = __dirname + "/loadfile/loadfile.txt" ;
+//     res.download(
+//         filePath, 
+//         (err) => {
+//             if (err) {
+//                 res.send({
+//                     error : err,
+//                     msg   : "Problem downloading the file"
+//                 })
+//             }
+//     });
+// });
 
 
 
-app.listen(port, () => {
+app.listen(3000, () => {
   console.log(`Example app listening on port ${port}`);
 });
