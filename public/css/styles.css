@@ -39,6 +39,16 @@ html {
   margin: 20px;
 }
 
+.resetBtn {
+  color:white;
+  background-color: tomato;
+  text-decoration: none;
+  margin-top: 12px;
+  padding: 10px;
+  font-size:18px;
+  text-align: center;
+}
+
 #load-f, #download-load-f {
   color:white;
   background-color: steelblue;

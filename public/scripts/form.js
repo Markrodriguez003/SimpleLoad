@@ -127,6 +127,7 @@ window.onload = function () {
           option.value = dTypes[x];
           DOCTYPE_SELECT.appendChild(option);
         }
+         
       },
       false
     );
@@ -154,6 +155,7 @@ window.onload = function () {
       var output = document.querySelector("ul");
       var files = FINALPRODUCTION.files;
 
+      // PRINTING THEM TO BROWSER
       for (var i = 0; i < files.length; i++) {
         var item = document.createElement("li");
 
@@ -186,8 +188,13 @@ window.onload = function () {
         " " +
         files[5].lastModified;
 
+
+        
+      console.log("Author: " + AUTHOR_SELECT.value  + "Doctype: " + DOCTYPE_SELECT.value)  
+      formatCSV(files);
       var link = document.getElementById("download-load-f");
       link.href = writeCSV(JSON.stringify(exampleData));
+      // link.href = writeCSV(ADD FORMATTER FUNCTION HERE INSTEAD OF FUNC ABOVE));
       link.style.display = "block";
       link.style.backgroundColor = "limegreen";
     });
@@ -211,6 +218,15 @@ window.onload = function () {
 
     DOWNLOAD_LOADF.style.display = "none";
     return loadFile;
+  }
+
+  function formatCSV(data){
+
+    console.log("Formatting .csv file!");
+
+    var formattedCSV = data;
+
+    return formattedCSV;
   }
 
   //********************************************************* */
