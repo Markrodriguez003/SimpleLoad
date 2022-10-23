@@ -28,7 +28,7 @@
 }
 
 #SimpleLoaderLogo {
-  width: 50%;
+  width: 40%;
   height: auto;
   margin: 10px;
   padding: 10px;
@@ -101,6 +101,12 @@
 }
 
 /* Modal Content/Box */
+
+.modal-content #close-btn{
+  display:absolute;
+  width:24px;
+  float:right;
+}
 .modal-content {
   display:flex;
   align-content: center;
@@ -131,3 +137,5 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+ 
