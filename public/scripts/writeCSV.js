@@ -1,27 +1,26 @@
-const fs = require('fs/promises');
 
-async function example() {
-  try {
-    const content = 'Some content!';
-    await fs.writeFile('/Users/joe/test.txt', content);
-  } catch (err) {
-    console.log(err);
+// WRITE CSV LOAD FILE FUNC
+
+// import path from "/node";
+
+export default function writeCSV(data) {
+ 
+
+  // console.log("path--> " + path.basename('C:\\temp\\myfile.html'));
+  const DOWNLOAD_LOADF = document.getElementById("load-f");
+
+  console.log("Writing csv load file. . . ");
+  var loadFile = null;
+  var data = new Blob([data], { type: "text/csv" });
+
+  if (loadFile !== null) {
+    window.URL.revokeObjectURL(loadFile);
   }
+
+  loadFile = window.URL.createObjectURL(data);
+
+  DOWNLOAD_LOADF.style.display = "none";
+  return loadFile;
 }
 
 
-function WriteCSVfile(data) {
-    var textFile = null;
-  
-    var data = new Blob([data], { type: "text/plain" });
-  
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (textFile !== null) {
-      window.URL.revokeObjectURL(textFile);
-    }
-  
-    textFile = window.URL.createObjectURL(data);
-  
-    return textFile;
-  }

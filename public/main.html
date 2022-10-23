@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/styles.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
     <title>Simple-Loader</title>
   </head>
 
   <body>
     <div class="MainPage">
       <img
-        src="/images/simpleloadguy.png"
+        src="./images/simpleloadguy.png"
         alt="mail-guy-logo"
         id="SimpleLoaderLogo"
       />
@@ -24,12 +25,19 @@
           >Client:</label
         >
         <input type="text" id="client-code" name="client-code" />
-
+        <small id="client-warning" style="display:none; color:red"> ❌ Client # must be 5 numerical digits! ❌ </small>
         <br />
         <label for="matter-code" style="font-weight: bold; margin-bottom: 10px"
           >Matter:</label
         >
         <input type="text" id="matter-code" name="matter-code" />
+        <small id="matter-warning" style="display:none; color:red">❌ Matter # must be 4 numerical digits! ❌ </small>
+
+        <br />
+        <label for="netdocs-directory" style="font-weight: bold; margin-bottom: 10px"
+          >NetDocs Directory:</label
+        >
+        <input type="text" id="netdocs-directory" name="netdocs-directory" />
 
         <br />
 
@@ -64,7 +72,7 @@
 
         <a href="#" id="load-f">LOAD PRODUCTION</a>
         <a download="loadfile.csv" download id="download-load-f" style="display:none">DOWNLOAD LOAD FILE</a>
-        <button onClick="window.location.reload();" class="resetBtn">START NEW LOAD FILE</button>
+        <button class="resetBtn" >START NEW LOAD FILE</button>
         <!-- <a type="button" download="info.txt" target="_self" download style="margin: 10px" id="download-load-f"> Download Load File </a> -->
         <!-- <a download="/download" download   style="margin: 10px" id="download-load-f"> Download Load File </a> -->
         <!-- <a type="button"  href="/images/simpleloadguy.png"  target="_self"  style="margin: 10px; background-color: blue; color:white;" id="download-load-f" download> Download Load File </a> -->
@@ -77,5 +85,9 @@
 
     <!-- <script type="module" src="../data/doctypes.js"></script> -->
   </body>
-  <script async src="/scripts/form.js"></script>
+  <script type="module" src="./scripts/main.js"></script>
+  <script type="module" src="./scripts/select.js"></script>
+  <script type="module" src="./scripts/input-validator.js"></script>
+  <script type="module" src="./scripts/form-validator.js"></script>
+  <script type="module" src="./scripts/writeCSV.js"></script>
 </html>
