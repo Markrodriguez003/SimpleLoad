@@ -14,13 +14,14 @@ import writeCSV from "../scripts/writeCSV.js"
 
 
 
- 
+import printFiles from "../scripts/printFiles.js";
+import formSubmission from "../scripts/formSubmission.js";
 
 // MAIN
 //********************************************************* */
 window.onload = function () {
 
- 
+
   console.log("Waiting for files. . . ");
 
   //********************************************************* */
@@ -44,54 +45,36 @@ window.onload = function () {
 
       console.log("User clicked download load file btn.");
 
-      var output = document.querySelector("ul");
+
       var files = FINALPRODUCTION.files;
 
-      // PRINTING THEM TO BROWSER
-      for (var i = 0; i < files.length; i++) {
-        var item = document.createElement("li");
+      var exampleData = printFiles(files);
 
-        item.style.listStyleType = "none";
-        item.innerHTML = "/" + files[i].webkitRelativePath;
-        output.appendChild(item);
+      // console.log("Author: " + AUTHOR_SELECT.value + "Doctype: " + DOCTYPE_SELECT.value)
+
+
+      if ( formSubmission() === true) {
+        
+        // formatCSV(files);
+        var link = document.getElementById("download-load-f");
+        link.href = writeCSV(JSON.stringify(exampleData));
+        link.style.display = "block";
+        link.style.backgroundColor = "limegreen";
+      } else {
+        console.log("FORM DID NOT VALIDATE!");
       }
-      var exampleData =
-        "Loading File" +
-        " " +
-        files[5].webkitRelativePath +
-        " " +
-        files[5].name +
-        " " +
-        files[5].type +
-        " " +
-        files[5].size +
-        " " +
-        files[5].lastModified;
-      // TESTING OUTPUT VIA CONSOLE
-      console.log(exampleData);
-
-      // const lib = require("./bundle");
-      // lib(work);
-
-      const DOCTYPE_SELECT = document.getElementById("doctype");
-      const AUTHOR_SELECT = document.getElementById("author");
 
 
-      console.log("Author: " + AUTHOR_SELECT.value + "Doctype: " + DOCTYPE_SELECT.value)
-      formatCSV(files);
-      var link = document.getElementById("download-load-f");
-      link.href = writeCSV(JSON.stringify(exampleData));
-      // link.href = writeCSV(ADD FORMATTER FUNCTION HERE INSTEAD OF FUNC ABOVE));
-      link.style.display = "block";
-      link.style.backgroundColor = "limegreen";
+
+
     });
 
   //********************************************************* */
- 
+
 
   function formatCSV(data) {
 
-    // WORKS
+    //WORKS
     // console.log("Formatting .csv file!" + "AUTHOR= " + AUTHOR_SELECT.value + "DOCTYPE= " + DOCTYPE_SELECT.value);
 
 

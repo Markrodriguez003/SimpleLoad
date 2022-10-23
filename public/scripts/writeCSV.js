@@ -4,9 +4,8 @@
 // import path from "/node";
 
 export default function writeCSV(data) {
- 
+  console.log("I'm inside writeCSV func!")
 
-  // console.log("path--> " + path.basename('C:\\temp\\myfile.html'));
   const DOWNLOAD_LOADF = document.getElementById("load-f");
 
   console.log("Writing csv load file. . . ");
