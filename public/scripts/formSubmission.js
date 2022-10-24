@@ -1,5 +1,5 @@
 // FORM VALIDATOR 
-export default function validator() {
+export default function formSubmission(data) {
     var CLIENT_INPUT = document.getElementById("client-code");
     var C_WARNING = document.getElementById("client-warning");
     var MATTER_INPUT = document.getElementById("matter-code");
@@ -20,7 +20,15 @@ export default function validator() {
 
 
 
-        return true
+        return {
+
+            pass: true,
+            client:  CLIENT_INPUT.value,
+            matter:  MATTER_INPUT.value,
+            netdocs: NETDOCS_INPUT.value,
+            author:  AUTHOR_SELECT.value,
+            doctype: DOCTYPE_SELECT.value,
+        } // returns author, netdocs, doctype, matter, client
     }
 
 

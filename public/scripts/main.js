@@ -1,5 +1,3 @@
-import writeCSV from "../scripts/writeCSV.js"
-
 // REFERENCES
 //********************************************************* */
 // https://web.dev/read-files/
@@ -16,6 +14,8 @@ import writeCSV from "../scripts/writeCSV.js"
 
 import printFiles from "../scripts/printFiles.js";
 import formSubmission from "../scripts/formSubmission.js";
+import formatCSV from "../scripts/formatCSV.js";
+import writeCSV from "../scripts/writeCSV.js"
 
 // MAIN
 //********************************************************* */
@@ -48,16 +48,14 @@ window.onload = function () {
 
       var files = FINALPRODUCTION.files;
 
-      var exampleData = printFiles(files);
+      printFiles(files);
 
-      // console.log("Author: " + AUTHOR_SELECT.value + "Doctype: " + DOCTYPE_SELECT.value)
-
-
-      if ( formSubmission() === true) {
+      var validatedData = formSubmission(files);
+      if ( validatedData.pass === true) {
         
-        // formatCSV(files);
+       var formattedData = formatCSV(validatedData, files);
         var link = document.getElementById("download-load-f");
-        link.href = writeCSV(JSON.stringify(exampleData));
+        link.href = writeCSV(JSON.stringify(formattedData));
         link.style.display = "block";
         link.style.backgroundColor = "limegreen";
       } else {
@@ -72,25 +70,7 @@ window.onload = function () {
   //********************************************************* */
 
 
-  function formatCSV(data) {
-
-    //WORKS
-    // console.log("Formatting .csv file!" + "AUTHOR= " + AUTHOR_SELECT.value + "DOCTYPE= " + DOCTYPE_SELECT.value);
-
-
-    // fs.stat(data[0], (err, fileObject) => {
-    //   if (err) {
-    //     console.log(err)
-    //   } else {
-    //     console.log(fileObject)
-    //   }
-    // })
-
-    var formattedCSV = data;
-
-    return formattedCSV;
-  }
-
+ 
 
 
   const refreshButton = document.querySelector('.resetBtn');
