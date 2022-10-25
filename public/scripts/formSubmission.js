@@ -1,5 +1,5 @@
 // FORM VALIDATOR 
-export default function formSubmission(data) {
+export default function formSubmission() {
     var CLIENT_INPUT = document.getElementById("client-code");
     var C_WARNING = document.getElementById("client-warning");
     var MATTER_INPUT = document.getElementById("matter-code");
@@ -14,12 +14,8 @@ export default function formSubmission(data) {
     var numbers = /^[0-9]+$/;
 
       //TEST
-      console.log("Inside validator --> Author: " + AUTHOR_SELECT.value + " Doctype: " + DOCTYPE_SELECT.value)
+    //   console.log("Inside validator --> Author: " + AUTHOR_SELECT.value + " Doctype: " + DOCTYPE_SELECT.value)
  
-
-
-
-
         return {
 
             pass: true,

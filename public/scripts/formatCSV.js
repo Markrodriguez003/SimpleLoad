@@ -13,7 +13,7 @@ export default function formatCSV(formData, files) {
     folder: "/netdocs/directoryB",
   };
 
-  var testArry = [
+  var cvsHeaders = [
     "filepath",
     "client",
     "matter",
@@ -23,37 +23,10 @@ export default function formatCSV(formData, files) {
     "folder",
   ];
 
-  var data = [
-    [
-      "/myfilename/data/mainhub",
-      "49008",
-      "0001",
-      "shapes",
-      ".pdf",
-      "/netdocs/folders/hellow",
-    ],
-    [
-      "/myfilename/data/mainhub",
-      "49008",
-      "0001",
-      "triangles",
-      ".docx",
-      "/netdocs/folders/hellow",
-    ],
-    [
-      "/myfilename/data/mainhub",
-      "49008",
-      "0001",
-      "armitures",
-      ".txt",
-      "/netdocs/folders/hellow",
-    ],
-  ];
+   
 
   var csv = [];
-  console.log("This is what is being pushed into csv --> " + testArry[0])
-  csv.push(testArry[0]);
-  console.log("This is the csv data --> " + csv[0])
+  csv.push(cvsHeaders.join(","));
 
 
   // console.log("Amount of files: " + files.length);

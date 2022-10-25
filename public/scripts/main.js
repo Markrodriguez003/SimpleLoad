@@ -9,85 +9,95 @@
 // https://blog.logrocket.com/how-to-build-a-progressive-web-app-pwa-with-node-js/
 // https://w3c.github.io/FileAPI/#dfn-file
 // https://web.dev/read-files/
+// FULL PATH REF
+// https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
 
 
-
+// SCRIPTS
+//********************************************************* */
 import printFiles from "../scripts/printFiles.js";
 import formSubmission from "../scripts/formSubmission.js";
 import formatCSV from "../scripts/formatCSV.js";
 import writeCSV from "../scripts/writeCSV.js"
-
+//********************************************************* */
 // MAIN
 //********************************************************* */
 window.onload = function () {
 
-
   console.log("Waiting for files. . . ");
 
   //********************************************************* */
+  // BROWSE FILE INPUT (FOR LOADING PRODUCTION FOLDER)
+  const PRODUCTIONLOAD = document.getElementById("production-folder");
 
+  // DOWNLOAD BUTTON FOR LOADED, PROCESSED & FORMATTED .CSV
   const DOWNLOAD_LOADF = document.getElementById("load-f");
-  const FINALPRODUCTION = document.getElementById("production-folder");
 
-  // USER LOADS PRODUCTION EVENT LISTENER
-  FINALPRODUCTION &&
-    FINALPRODUCTION.addEventListener("click", function (e) {
+  // EVENT LISTENER FOR ABOVE BROWSE FILE INPUT
+  PRODUCTIONLOAD &&
+    PRODUCTIONLOAD.addEventListener("click", function (e) {
       console.log("Using clicked to submit load file");
     });
-
   //********************************************************* */
 
   // DOWNLOAD LOAD FILE SUBMISSION EVENT LISTENER
   DOWNLOAD_LOADF &&
-    DOWNLOAD_LOADF.addEventListener("click", function (e) {
+    DOWNLOAD_LOADF.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
 
       console.log("User clicked download load file btn.");
 
+      // GRABS ALL FILES USER LOADED USING LOAD FILE INPUT
+      var rawFiles = PRODUCTIONLOAD.files;
 
-      var files = FINALPRODUCTION.files;
+      //********************************************************* */
 
-      printFiles(files);
+      // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE 
+      // PUT IN SCROLLABLE CAROUSEL AND/OR PAGINATION (n/Flength)
+      printFiles(rawFiles);
 
-      var validatedData = formSubmission(files);
-      if ( validatedData.pass === true) {
-        
-       var formattedData = formatCSV(validatedData, files);
-        var link = document.getElementById("download-load-f");
-        link.href = writeCSV(JSON.stringify(formattedData));
-        link.style.display = "block";
-        link.style.backgroundColor = "limegreen";
+      //********************************************************* */
+
+      //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE) 
+      var formData = formSubmission();
+
+      //********************************************************* */
+
+      // FORM DATA VALIDATION CONDITIONAL 
+      if (formData.pass === true) {
+
+        // SAVES FORMATTED DATA BY PASSING VALIDATED DATA + FORM DATA
+        var formattedData = formatCSV(formData, rawFiles);
+
+        // GRABS DOWNLOAD PRODUCTION LOAD FILE BUTTON/ANCHOR  
+        var downloadCsvBtn = document.getElementById("download-load-f");
+
+        // ASSIGNS DOWNLOAD .CSV URL TO DOWNLOAD PRODUCTION LOAD FILE
+        downloadCsvBtn.href = writeCSV(formattedData);
+
+        // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
+        downloadCsvBtn.style.display = "block";
+
+        // CHANGES COLOR TO GREEN IF DOWNLOAD PRODUCTION LOAD FILE BUTTON
+        downloadCsvBtn.style.backgroundColor = "limegreen";
       } else {
         console.log("FORM DID NOT VALIDATE!");
       }
-
-
-
-
     });
 
   //********************************************************* */
 
-
- 
-
-
+  // REFRESH PAGE BUTTON
   const refreshButton = document.querySelector('.resetBtn');
 
-  const refreshPage = (e) => {
-    e.preventDefault() // Eliminates HTTP headers
-    location.reload(); // Refresh page
+  // BUTTON THAT CLEARS FORM AND REFRESHES ENTIRE PAGE.
+  refreshButton.addEventListener('click', (e) => {
+    e.preventDefault() // Eliminates previous HTTP headers
+    location.reload(); // Refresh entire page
 
-  }
-
-  refreshButton.addEventListener('click', refreshPage)
+  })
 
   //********************************************************* */
-  //********************************************************* */
-  //********************************************************* */
-  //*******************EOL************************ */
-  //********************************************************* */
-  //********************************************************* */
-  //********************************************************* */
+
 }; // EOL for OnLoad
