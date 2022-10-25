@@ -6,7 +6,7 @@ export default function printFiles(files) {
 
     for (var i = 0; i < files.length; i++) {
         var item = document.createElement("li");
-
+ 
         item.style.listStyleType = "none";
         item.innerHTML = "/" + files[i].webkitRelativePath;
         output.appendChild(item);

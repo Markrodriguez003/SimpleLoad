@@ -60,7 +60,7 @@ window.onload = function () {
       //********************************************************* */
 
       //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE) 
-      var formData = formSubmission();
+      var formData = formSubmission(); // CHANGE TO FORM VALIDATOR
 
       //********************************************************* */
 

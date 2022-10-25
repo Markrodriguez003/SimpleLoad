@@ -3,36 +3,57 @@
 // https://www.geeksforgeeks.org/how-to-create-and-download-csv-file-in-javascript/
 
 export default function formatCSV(formData, files) {
-  var formData = {
-    filepath: "/test/hub/folder1",
-    client: "48009",
-    matter: "0009",
-    doctype: "Doc",
-    "document name": "Test.pdf",
-    "document extension": ".pdf",
-    folder: "/netdocs/directoryB",
-  };
-
   var cvsHeaders = [
-    "filepath",
-    "client",
-    "matter",
-    "doctype",
-    "document name",
-    "document extension",
-    "folder",
+    "filepath", // FILES
+    "client", // FORM
+    "matter", // FORM
+    "author", // FORM
+    "doctype", // FORM
+    "document name", // FILES
+    "document extension", // FILES
+    "folder", // FORM
   ];
 
-   
-
+  // CREATE EMPTY VAR OF .CSV DATA
   var csv = [];
+  // PUSH HEADERS INTO .CSV DATA
   csv.push(cvsHeaders.join(","));
+  // csv.push("\r ");
+  // csv.push("\r Hello, works!"); // causes errors!
+  // var test = "Hello, works! /netdocs \netdocs";
+  // test = test.replace(/,/g, "");
+  // csv.push( test);
 
+  // FOR LOOP TO INSERT DATA OF EACH FILE + FORM DATA INTO 1 ROW
+  // VAR THAT WILL TEMPORARILY HOLD ROW DATA
+  for (var i = 0; i < files.length; i++) {
+    var row = [];
+    row.push(files[i].webkitRelativePath.replace(/,/g, ""));
+    // row.push(toString(formData.client.replace(/,/g, "")));
+    // row.push(toString(formData.matter.replace(/,/g, "")));
+    // row.push(formData.author.replace(/,/g, ""));
+    // row.push(formData.doctype.replace(/,/g, ""));
+    // row.push(files[i].name.replace(/,/g, ""));
+    // row.push(files[i].type.replace(/,/g, ""));
+    // row.push(formData.netdocs.replace(/,/g, ""));
+
+    //PUSH NEW ROW INTO CSV
+    csv.push(row.join(","));
+    csv.push("\r");
+
+    // CLEAR TEMP. ROW
+    row.length = 0;
+  }
+
+  return csv;
+}
+
+/*
 
   // console.log("Amount of files: " + files.length);
 
-  // console.log("Test raw Object: " + testObject);
-  // console.log("Test JSON.Stringified Object: " +JSON.stringify(testObject));
+  // console.log("Test raw Object: " + formData);
+  // console.log("Test JSON.Stringified Object: " +JSON.stringify(formData));
 
   // console.log("****************************************");
   // console.log("The single raw files: " + files[1]);
@@ -43,27 +64,4 @@ export default function formatCSV(formData, files) {
   // console.log ("whats keys inside: " + Object.keys(files));
   // console.log ("whats values inside: " + Object.values(files));
   // console.log ("whats values inside: " + JSON.stringify(Object.values(files)));
-
-  // for (var i = 0; i < files.length; i++) {
-  //     formattedData = formattedData +
-  //         "\r" +
-  //         files[i].webkitRelativePath +
-  //         "," + "\r " +
-  //         formData.client +
-  //         "," + "\r" +
-  //         formData.matter +
-  //         "," + "\r" +
-  //         formData.docType +
-  //         "," + "\r" +
-  //         files[i].name +
-  //         "," + "\r" +
-  //         files[i].type +
-  //        "," + "\r" +
-  //         formData.netDocs +
-  //         "," +
-  //         formData.author;
-
-  // }
-
-  return csv;
-}
+*/
