@@ -1,6 +1,7 @@
 // REFERENCES
 // https://code-maven.com/create-and-download-csv-with-javascript
 // https://www.geeksforgeeks.org/how-to-create-and-download-csv-file-in-javascript/
+// https://stackoverflow.com/questions/4617935/is-there-a-way-to-include-commas-in-csv-columns-without-breaking-the-formatting
 
 export default function formatCSV(formData, files) {
   var cvsHeaders = [
@@ -11,24 +12,32 @@ export default function formatCSV(formData, files) {
     "doctype", // FORM
     "document name", // FILES
     "document extension", // FILES
-    "folder", // FORM
+    "folder" // FORM
   ];
 
   // CREATE EMPTY VAR OF .CSV DATA
   var csv = [];
   // PUSH HEADERS INTO .CSV DATA
   csv.push(cvsHeaders.join(","));
-  // csv.push("\r ");
-  // csv.push("\r Hello, works!"); // causes errors!
+  
+  // csv.push("\r Hello "," works \\rolrder!"); // causes errors!
+  // csv.push("\" Hello ,\\roads / works \""); // WORKS
+  let testData = "Hello, 3\roads , / works"; // WORKS
+  // let testDatab = testData.replace(/works/g, "GREEN"); // WORKS
+  let testDatab = testData.replace(/ .*\\ /g, "?");
+  console.log("gold: " + testDatab);
+  
+  // csv.push(`\"Test, ${testDatab}  \"`); // WORKS
+  
   // var test = "Hello, works! /netdocs \netdocs";
   // test = test.replace(/,/g, "");
   // csv.push( test);
 
   // FOR LOOP TO INSERT DATA OF EACH FILE + FORM DATA INTO 1 ROW
   // VAR THAT WILL TEMPORARILY HOLD ROW DATA
-  for (var i = 0; i < files.length; i++) {
-    var row = [];
-    row.push(files[i].webkitRelativePath.replace(/,/g, ""));
+  // for (var i = 0; i < files.length; i++) {
+    // var row = [];
+    // row.push(files[i].webkitRelativePath.replace(/,/g, ""));
     // row.push(toString(formData.client.replace(/,/g, "")));
     // row.push(toString(formData.matter.replace(/,/g, "")));
     // row.push(formData.author.replace(/,/g, ""));
@@ -36,14 +45,14 @@ export default function formatCSV(formData, files) {
     // row.push(files[i].name.replace(/,/g, ""));
     // row.push(files[i].type.replace(/,/g, ""));
     // row.push(formData.netdocs.replace(/,/g, ""));
-
+    
     //PUSH NEW ROW INTO CSV
-    csv.push(row.join(","));
-    csv.push("\r");
+    // csv.push(row.join(","));
+    // csv.push("\r");
 
     // CLEAR TEMP. ROW
-    row.length = 0;
-  }
+    // row.length = 0;
+  // }
 
   return csv;
 }
