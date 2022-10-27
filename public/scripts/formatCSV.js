@@ -15,17 +15,37 @@ export default function formatCSV(formData, files) {
     "folder" // FORM
   ];
 
+
+  function slashesFix(string) {
+    return string.replace(/\ /g, `\\`)
+           
+
+
+    // return string.replace(/\\/g, '\\\\').
+    //     replace(/\u0008/g, '\\b').
+    //     replace(/\t/g, '\\t').
+    //     replace(/\n/g, '\\n').
+    //     replace(/\f/g, '\\f').
+    //     replace(/ `\` /g,  '\' ').
+    //     replace(/\r/g, '\r').
+    //     replace(/'/g, '\\\'')
+        // replace(/ \ /g, '\\')
+        // replace(/"/g, '\\"');
+}
+
   // CREATE EMPTY VAR OF .CSV DATA
   var csv = [];
   // PUSH HEADERS INTO .CSV DATA
   csv.push(cvsHeaders.join(","));
   
-  // csv.push("\r Hello "," works \\rolrder!"); // causes errors!
-  // csv.push("\" Hello ,\\roads / works \""); // WORKS
-  let testData = "Hello, 3\roads , / works"; // WORKS
+  let testData = `Test, , Fix me,  /Files\Folders\gpu0//FOLDER2\rprdocution\n\p\h\r , /works`; // WORKS
   // let testDatab = testData.replace(/works/g, "GREEN"); // WORKS
-  let testDatab = testData.replace(/ .*\\ /g, "?");
-  console.log("gold: " + testDatab);
+  // let testDatab = testData.replace(/ \ /g, "?");
+  console.log("gold: " +  slashesFix(testData));
+
+
+
+
   
   // csv.push(`\"Test, ${testDatab}  \"`); // WORKS
   

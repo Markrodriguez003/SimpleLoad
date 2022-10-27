@@ -12,17 +12,27 @@
 // FULL PATH REF
 // https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
 
-
 // SCRIPTS
 //********************************************************* */
 import printFiles from "../scripts/printFiles.js";
 import formSubmission from "../scripts/formSubmission.js";
 import formatCSV from "../scripts/formatCSV.js";
-import writeCSV from "../scripts/writeCSV.js"
+import writeCSV from "../scripts/writeCSV.js";
 //********************************************************* */
 // MAIN
+// var cowsay = require("cowsay");
+import cowsay from "/cowsay";
+
 //********************************************************* */
 window.onload = function () {
+
+  console.log(
+    cowsay.say({
+      text: "I'm a moooodule",
+      e: "oO",
+      T: "U ",
+    })
+  );
 
   console.log("Waiting for files. . . ");
 
@@ -53,24 +63,23 @@ window.onload = function () {
 
       //********************************************************* */
 
-      // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE 
+      // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE
       // PUT IN SCROLLABLE CAROUSEL AND/OR PAGINATION (n/Flength)
       printFiles(rawFiles);
 
       //********************************************************* */
 
-      //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE) 
+      //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE)
       var formData = formSubmission(); // CHANGE TO FORM VALIDATOR
 
       //********************************************************* */
 
-      // FORM DATA VALIDATION CONDITIONAL 
+      // FORM DATA VALIDATION CONDITIONAL
       if (formData.pass === true) {
-
         // SAVES FORMATTED DATA BY PASSING VALIDATED DATA + FORM DATA
         var formattedData = formatCSV(formData, rawFiles);
 
-        // GRABS DOWNLOAD PRODUCTION LOAD FILE BUTTON/ANCHOR  
+        // GRABS DOWNLOAD PRODUCTION LOAD FILE BUTTON/ANCHOR
         var downloadCsvBtn = document.getElementById("download-load-f");
 
         // ASSIGNS DOWNLOAD .CSV URL TO DOWNLOAD PRODUCTION LOAD FILE
@@ -89,15 +98,13 @@ window.onload = function () {
   //********************************************************* */
 
   // REFRESH PAGE BUTTON
-  const refreshButton = document.querySelector('.resetBtn');
+  const refreshButton = document.querySelector(".resetBtn");
 
   // BUTTON THAT CLEARS FORM AND REFRESHES ENTIRE PAGE.
-  refreshButton.addEventListener('click', (e) => {
-    e.preventDefault() // Eliminates previous HTTP headers
+  refreshButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Eliminates previous HTTP headers
     location.reload(); // Refresh entire page
-
-  })
+  });
 
   //********************************************************* */
-
 }; // EOL for OnLoad
