@@ -31,6 +31,7 @@ app.use(E.static(P.join(__dirname, "/public")));
 app.get("/", (req, res) => { res.sendFile(P.join(__dirname, "/public/main.html")); })
 
 
+
 // THIS WORKS
 // app.get("/download", (req, res) => { 
 //     const filePath = __dirname + "/loadfile/loadfile.txt" ;

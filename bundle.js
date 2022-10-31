@@ -1,3 +1,4 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 // REFERENCES
 //********************************************************* */
 // https://web.dev/read-files/
@@ -11,15 +12,13 @@
 // https://web.dev/read-files/
 // FULL PATH REF
 // https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
-//https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
 // SCRIPTS
 //********************************************************* */
 var printF = require("../scripts/printFiles");
-var select = require("../scripts/select");
-var writeCSV = require("../scripts/writeCSV");
-var formSubmission = require ("../scripts/formSubmission.js");
-var formatCSV = require("../scripts/formatCSV.js");
+// import formSubmission from "../scripts/formSubmission.js";
+// import formatCSV from "../scripts/formatCSV.js";
+// import writeCSV from "../scripts/writeCSV.js";
 //********************************************************* */
 // MAIN
 //********************************************************* */
@@ -56,32 +55,33 @@ window.onload = function () {
       // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE
       // PUT IN SCROLLABLE CAROUSEL AND/OR PAGINATION (n/Flength)
       printF.printFiles(rawFiles);
+      printF.printMesg();
       //********************************************************* */
 
       //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE)
-      var formData = formSubmission(); // CHANGE TO FORM VALIDATOR
+      // var formData = formSubmission(); // CHANGE TO FORM VALIDATOR
 
       //********************************************************* */
 
       // FORM DATA VALIDATION CONDITIONAL
-      if (formData.pass === true) {
+      // if (formData.pass === true) {
       // SAVES FORMATTED DATA BY PASSING VALIDATED DATA + FORM DATA
-      var formattedData = formatCSV(formData, rawFiles);
+      // var formattedData = formatCSV(formData, rawFiles);
 
       // GRABS DOWNLOAD PRODUCTION LOAD FILE BUTTON/ANCHOR
-      var downloadCsvBtn = document.getElementById("download-load-f");
+      // var downloadCsvBtn = document.getElementById("download-load-f");
 
       // ASSIGNS DOWNLOAD .CSV URL TO DOWNLOAD PRODUCTION LOAD FILE
-      downloadCsvBtn.href = writeCSV(formattedData);
+      // downloadCsvBtn.href = writeCSV(formattedData);
 
       // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
-      downloadCsvBtn.style.display = "block";
+      // downloadCsvBtn.style.display = "block";
 
       // CHANGES COLOR TO GREEN IF DOWNLOAD PRODUCTION LOAD FILE BUTTON
-      downloadCsvBtn.style.backgroundColor = "limegreen";
-      } else {
-      console.log("FORM DID NOT VALIDATE!");
-      }
+      // downloadCsvBtn.style.backgroundColor = "limegreen";
+      // } else {
+      // console.log("FORM DID NOT VALIDATE!");
+      // }
     });
 
   //********************************************************* */
@@ -97,3 +97,39 @@ window.onload = function () {
 
   //********************************************************* */
 }; // EOL for OnLoad
+
+},{"../scripts/printFiles":2}],2:[function(require,module,exports){
+// PRINTING FILES TO BROWSER
+module.exports.printFiles = function (files) {
+    console.log("PRINTING FORM")
+
+    var output = document.querySelector("ul");
+
+    for (var i = 0; i < files.length; i++) {
+        var item = document.createElement("li");
+        item.style.listStyleType = "none";
+        item.innerHTML = "/" + files[i].webkitRelativePath;
+        output.appendChild(item);
+    }
+    // var exampleData =
+    //     "Loading File" +
+    //     " " +
+    //     files[5].webkitRelativePath +
+    //     " " +
+    //     files[5].name +
+    //     " " +
+    //     files[5].type +
+    //     " " +
+    //     files[5].size +
+    //     " " +
+    //     files[5].lastModified;
+    // console.log(exampleData);
+
+    return false;
+}
+
+module.exports.printMesg = function () { console.log("PRINTING MESSAGE!!!")}
+
+
+
+},{}]},{},[1]);

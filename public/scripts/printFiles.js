@@ -1,12 +1,11 @@
 // PRINTING FILES TO BROWSER
-export default function printFiles(files) {
-    console.log("VALIDATING FORM")
+module.exports.printFiles = function (files) {
+    console.log("PRINTING FORM")
 
     var output = document.querySelector("ul");
 
     for (var i = 0; i < files.length; i++) {
         var item = document.createElement("li");
- 
         item.style.listStyleType = "none";
         item.innerHTML = "/" + files[i].webkitRelativePath;
         output.appendChild(item);
@@ -27,3 +26,6 @@ export default function printFiles(files) {
 
     return false;
 }
+
+
+

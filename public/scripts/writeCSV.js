@@ -1,5 +1,5 @@
 // WRITE CSV LOAD FILE FUNC
-export default function writeCSV(data) {
+module.exports = function(data) {
   // GRABS UPLOAD PRODUCTION DIRECTORY ANCHOR / BUTTON
   const LOADFILE = document.getElementById("load-f");
 

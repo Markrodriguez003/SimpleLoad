@@ -9,6 +9,7 @@ THAT TO POPULATE SELECT FILE
 
 const author = [
   "Mark Rodriguez",
+  "dick mcgreenie",
   "Jessica Yanes",
   "Melissa Yanes",
   "Brian Lechich",
