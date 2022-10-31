@@ -13,6 +13,10 @@
 // https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
 //https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
+
+
+// On Chrome/Chromium based apps like electron you can just use the target.files:! 
+
 // SCRIPTS
 //********************************************************* */
 var printF = require("../scripts/printFiles");
@@ -20,6 +24,7 @@ var select = require("../scripts/select");
 var writeCSV = require("../scripts/writeCSV");
 var formSubmission = require ("../scripts/formSubmission.js");
 var formatCSV = require("../scripts/formatCSV.js");
+var $ = require("jquery")
 //********************************************************* */
 // MAIN
 //********************************************************* */
@@ -28,16 +33,30 @@ window.onload = function () {
 
   //********************************************************* */
   // BROWSE FILE INPUT (FOR LOADING PRODUCTION FOLDER)
-  const PRODUCTIONLOAD = document.getElementById("production-folder");
+  // const PRODUCTIONLOAD = document.getElementById("production-folder");
+  const PRODUCTIONLOAD = $("#production-folder");
+
+  PRODUCTIONLOAD.change(function(e){
+    console.log($(this).val());
+    console.log(e.target.files[0]);
+
+    
+  })
+
+
+
 
   // DOWNLOAD BUTTON FOR LOADED, PROCESSED & FORMATTED .CSV
   const DOWNLOAD_LOADF = document.getElementById("load-f");
 
   // EVENT LISTENER FOR ABOVE BROWSE FILE INPUT
-  PRODUCTIONLOAD &&
-    PRODUCTIONLOAD.addEventListener("click", function (e) {
-      console.log("Using clicked to submit load file");
-    });
+  // PRODUCTIONLOAD &&
+  //   PRODUCTIONLOAD.addEventListener("change", function (e) {
+  //     console.log("Using clicked to submit load file");
+  //     // console.log('fileP --> ' + this.val() )
+  //     console.log('fileP --> ' + e.target.files[0] )
+
+  //   });
   //********************************************************* */
 
   // DOWNLOAD LOAD FILE SUBMISSION EVENT LISTENER
