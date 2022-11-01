@@ -207,9 +207,31 @@ select {
   cursor: pointer;
 }
 
-#production-folder::before{
-content: "📂 Select Folder"
+#production-folder::-webkit-file-upload-button {
+  visibility: hidden;
 }
+
+#production-folder::before{
+content: "📂 Select Folder";
+border: 4px solid #999;
+/* border-radius: 3px; */
+/* padding: 5px 8px; */
+outline: none;
+white-space: nowrap;
+-webkit-user-select: none;
+cursor: pointer;
+text-shadow: 1px 1px #fff;
+font-weight: 700;
+font-size: 10pt;
+}
+
+.production-folder:hover::before {
+  border-color: black;
+}
+.production-folder:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
 /* COLLAPSABLE PRINTED FILE MENU */
 
 /* Style the button that is used to open and close the collapsible content */
