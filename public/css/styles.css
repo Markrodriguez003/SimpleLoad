@@ -55,7 +55,7 @@ h1{
 }
 
 .Header {
-  display: inline-block;
+  display: inline;
   font-size: 32px;
 }
 
@@ -207,7 +207,9 @@ select {
   cursor: pointer;
 }
 
-
+#production-folder::before{
+content: "📂 Select Folder"
+}
 /* COLLAPSABLE PRINTED FILE MENU */
 
 /* Style the button that is used to open and close the collapsible content */
