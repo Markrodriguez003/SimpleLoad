@@ -1,97 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="./images/icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <title>Simple-Loader</title>
+  </head>
 
-<head>
+  <!-- WINDOW SIZE 930 X 465 -->
+  <!-- WINDOW SIZE 875 X 415 ** Really -->
+  <body>
+    <!-- HELP MODAL -->
+    <div id="help-modal" class="help-modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" id="close-btn">&times;</span>
+        <img src="./images/help-sheet.png" alt="help-sheet" id="help-sheet" />
+      </div>
+    </div>
+    <!-- -->
 
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="icon" type="image/x-icon" href="./images/icon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./css/styles.css" rel="stylesheet" />
-  <title>Simple-Loader</title>
-</head>
+    <div class="MainPage">
+      <!-- HELP ICON -->
 
-<body>
+      <!-- LEFT SIDE LOGO + HEADER -->
 
-  <!-- The Modal -->
-  <div id="help-modal" class="help-modal">
+      <div style="display: flex; flex-direction: column">
+        <h1 class="Header">SIMPLE-LOAD</h1>
+        <img
+          src="./images/simpleloadguy..png"
+          alt="Folder-Logo-guy"
+          id="loaderLogo"
+        />
+        <!-- <h1>Document Production Load File Creator -</h1> -->
+      </div>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close" id="close-btn">&times;</span>
-      <img src="./images/help-sheet.png" alt="help-sheet" id="help-sheet" />
+      <!-- RIGHT SIDE FORM -->
+      <form action="#" class="SimpleForm">
+        <img
+          src="./images/question.png"
+          alt="question-mark-icon"
+          id="help-icon"
+        />
+        <hr />
+        <br />
+        <div>
+          <label
+            for="client-code"
+            style="font-weight: bold; margin-bottom: 10px"
+            >Client:</label
+          >
+          <input type="text" id="client-code" name="client-code" />
+          <small id="client-warning" style="display: none; color: red">
+            ❌ Client # must be 5 numerical digits! ❌
+          </small>
+          <br />
+          <label
+            for="matter-code"
+            style="font-weight: bold; margin-bottom: 10px"
+            >Matter:</label
+          >
+          <input type="text" id="matter-code" name="matter-code" />
+          <small id="matter-warning" style="display: none; color: red"
+            >❌ Matter # must be 4 numerical digits! ❌
+          </small>
+        </div>
+        <br />
+        <div>
+          <label for="author" style="font-weight: bold; margin-bottom: 10px"
+            >Author:</label
+          >
+          <select name="author" id="author">
+            <option></option>
+          </select>
+          <small id="author-warning" style="display: none; color: red">
+            ❌ Please select an author! ❌
+          </small>
+          <label for="doctype" style="font-weight: bold; margin-bottom: 10px"
+            >Doctype:</label
+          >
+          <select name="doctype" id="doctype">
+            <option></option>
+          </select>
+          <small id="doctype-warning" style="display: none; color: red">
+            ❌ Please select a doctype! ❌
+          </small>
+        </div>
+        <br />
+        <div>
+          <label
+            for="netdocs-directory"
+            style="font-weight: bold; margin-right: -40px"
+            >NetDocs Directory:</label
+          >
+          <input type="text" id="netdocs-directory" name="netdocs-directory" />
+          <small id="netdocs-warning" style="display: none; color: red">
+            ❌ Please enter a valid directory folder! ❌
+          </small>
+        </div>
+        <br />
+        <label
+          for="production-folder"
+          style="font-weight: bold; margin-bottom: 10px"
+          >Select root production folder:</label
+        >
+        <small id="production-warning" style="display: none; color: red">
+          ❌ Please Upload a production folder! ❌
+        </small>
 
+        <input
+          type="file"
+          id="production-folder"
+          name="production-folder"
+          webkitdirectory="multiple"
+        /><br />
+
+        <a href="#" id="load-f">LOAD PRODUCTION</a>
+        <a id="download-load-f" style="display: none">DOWNLOAD LOAD FILE</a>
+        <button class="resetBtn">START NEW LOAD FILE</button>
+      </form>
     </div>
 
-  </div>
-  <!-- -->
+    <hr />
 
-
-  <img src="./images//question.png" alt="question-mark-icon" id="help-icon" />
-  <div class="MainPage">
-    <img src="./images/simpleloadguy.png" alt="mail-guy-logo" id="SimpleLoaderLogo" />
-
-    <form action="#" class="SimpleForm">
-      <h1 style="text-decoration: underline" id="testss">
-        Upload Production
-      </h1>
-      <label for="client-code" style="font-weight: bold; margin-bottom: 10px">Client:</label>
-      <input type="text" id="client-code" name="client-code" />
-      <small id="client-warning" style="display:none; color:red"> ❌ Client # must be 5 numerical digits! ❌ </small>
-      <br />
-      <label for="matter-code" style="font-weight: bold; margin-bottom: 10px">Matter:</label>
-      <input type="text" id="matter-code" name="matter-code" />
-      <small id="matter-warning" style="display:none; color:red">❌ Matter # must be 4 numerical digits! ❌ </small>
-
-      <br />
-      <label for="netdocs-directory" style="font-weight: bold; margin-bottom: 10px">NetDocs Directory:</label>
-      <input type="text" id="netdocs-directory" name="netdocs-directory" />
-      <small id="netdocs-warning" style="display:none; color:red"> ❌ Please enter a valid directory folder! ❌ </small>
-
-      <br />
-
-      <label for="author" style="font-weight: bold; margin-bottom: 10px">Author:</label>
-      <select name="author" id="author">
-        <option></option>
-      </select>
-      <small id="author-warning" style="display:none; color:red"> ❌ Please select an author! ❌ </small>
-
-      <br />
-      <label for="doctype" style="font-weight: bold; margin-bottom: 10px">Doctype:</label>
-      <select name="doctype" id="doctype">
-        <option></option>
-      </select>
-      <small id="doctype-warning" style="display:none; color:red"> ❌ Please select a doctype! ❌ </small>
-
-      <br /><br />
-
-      <label for="production-folder" style="font-weight: bold; margin-bottom: 10px">Select root production
-        folder:</label>
-      <small id="production-warning" style="display:none; color:red"> ❌ Please Upload a production folder! ❌ </small>
-      <br />
-      <input type="file" id="production-folder" name="production-folder" webkitdirectory="multiple" /><br /><br />
-
-      <a href="#" id="load-f">LOAD PRODUCTION</a>
-      <!-- <a download="loadfile.csv" download id="download-load-f" style="display:none">DOWNLOAD LOAD FILE</a> -->
-      <a  id="download-load-f" style="display:none">DOWNLOAD LOAD FILE</a>
-      <button class="resetBtn">START NEW LOAD FILE</button>
-    </form>
-  </div>
-  <br />
-  <br />
-  <hr />
-  <h2>Selected Files</h2>
-  <ul></ul>
-
-</body>
-<!-- <script type="module" src="./scripts/main.js"></script> -->
-<!-- <script type="module" src="./scripts/select.js"></script> -->
-<!-- <script type="module" src="./scripts/input-validator.js"></script> -->
-<!-- <script type="module" src="./scripts/formSubmission.js"></script> -->
-<!-- <script type="module" src="./scripts/printFiles.js"></script> -->
-<!-- <script type="module" src="./scripts/writeCSV.js"></script> -->
-<!-- <script type="module" src="./scripts/formatCSV.js"></script> -->
-<!-- <script type="module" src="./scripts/modal.js"></script> -->
-<script type="module" src="/SimpleLoad/bundle.js"></script>
-
+    <!-- COLLAPSIBLE -->
+    <!-- ADD FILTERS FOR FILE TYPE, FOLDER AND DATE -->
+    <button type="button" class="collapsible">
+      UPLOADED FILES <span>▼</span>
+    </button>
+    <div class="content">
+      <ul id="file-menu-load"></ul>
+    </div>
+    <!-- <div >
+      <h2>Selected Files</h2>
+      <ul id="file-menu-load"></ul>
+    </div> -->
+  </body>
+  <script type="module" src="/SimpleLoad/bundle.js"></script>
 </html>
+
+<!-- 
+
+
+  
+      <form action="#" class="SimpleForm">
+        <div>
+          <label
+            for="client-code"
+            style="font-weight: bold; margin-bottom: 10px"
+            >Client:</label
+          >
+          <input type="text" id="client-code" name="client-code" />
+          <small id="client-warning" style="display: none; color: red">
+            ❌ Client # must be 5 numerical digits! ❌
+          </small>
+          <br />
+          <label
+            for="matter-code"
+            style="font-weight: bold; margin-bottom: 10px"
+            >Matter:</label
+          >
+          <input type="text" id="matter-code" name="matter-code" />
+          <small id="matter-warning" style="display: none; color: red"
+            >❌ Matter # must be 4 numerical digits! ❌
+          </small>
+        </div>
+        <br />
+        <div>
+          <label for="author" style="font-weight: bold; margin-bottom: 10px"
+            >Author:</label
+          >
+          <select name="author" id="author">
+            <option></option>
+          </select>
+          <small id="author-warning" style="display: none; color: red">
+            ❌ Please select an author! ❌
+          </small>
+          <label for="doctype" style="font-weight: bold; margin-bottom: 10px"
+            >Doctype:</label
+          >
+          <select name="doctype" id="doctype">
+            <option></option>
+          </select>
+          <small id="doctype-warning" style="display: none; color: red">
+            ❌ Please select a doctype! ❌
+          </small>
+        </div>
+        <br />
+        <div>
+          <label
+            for="netdocs-directory"
+            style="font-weight: bold; margin-right:-40px;"
+            >NetDocs Directory:</label
+          >
+          <input type="text" id="netdocs-directory" name="netdocs-directory" />
+          <small id="netdocs-warning" style="display: none; color: red">
+            ❌ Please enter a valid directory folder! ❌
+          </small>
+        </div>
+        <br />
+        <label
+          for="production-folder"
+          style="font-weight: bold; margin-bottom: 10px"
+          >Select root production folder:</label
+        >
+        <small id="production-warning" style="display: none; color: red">
+          ❌ Please Upload a production folder! ❌
+        </small>
+        
+        <input
+          type="file"
+          id="production-folder"
+          name="production-folder"
+          webkitdirectory="multiple"
+        /><br />
+
+        <a href="#" id="load-f">LOAD PRODUCTION</a>
+        <a id="download-load-f" style="display: none">DOWNLOAD LOAD FILE</a>
+        <button class="resetBtn">START NEW LOAD FILE</button>
+      </form>
+ -->
