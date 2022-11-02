@@ -19,6 +19,8 @@ body {
   width: 100%; */
 }
 
+
+
 img {
   margin: 0;
   padding: 0;
@@ -29,6 +31,11 @@ label{
   font-weight: bold;;
 }
 
+.svg-icon{
+  transform: scale(0.1);
+  margin:0;
+  padding:0;
+}
 #file-menu-load{
   overflow: scroll;
 }

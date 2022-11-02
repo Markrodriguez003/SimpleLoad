@@ -24,25 +24,31 @@ export default function printFiles(files) {
     data: "🗄️",
   };
 
+
+  //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
   for (var i = 0; i < files.length; i++) {
     var item = document.createElement("li");
+    var icon = document.createElement("img")
+    icon.src = "./public/images/icons/folder-outline.svg";
+    icon.className = "svg-icon";
     item.style.listStyleType = "round";
-    item.innerHTML = fileTypeIcon.pdf + " || /" + files[i].webkitRelativePath;
+    item.innerHTML = " /" + files[i].webkitRelativePath;
+    item.ChildNode.before(icon);
     output.appendChild(item);
   }
-  var exampleData =
-      "Loading File" +
-      " " +
-      files[5].webkitRelativePath +
-      " " +
-      files[5].name +
-      " " +
-      files[5].type +
-      " " +
-      files[5].size +
-      " " +
-      files[5].lastModified;
-  console.log(exampleData);
+  // var exampleData =
+  //     "Loading File" +
+  //     " " +
+  //     files[5].webkitRelativePath +
+  //     " " +
+  //     files[5].name +
+  //     " " +
+  //     files[5].type +
+  //     " " +
+  //     files[5].size +
+  //     " " +
+  //     files[5].lastModified;
+  // console.log(exampleData);
 
   return false;
 };

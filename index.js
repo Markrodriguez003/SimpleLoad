@@ -5,7 +5,7 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: 900,
         height:720,
-        icon: __dirname + 'public/images/icon.ico',
+        icon: __dirname + '/public/images/icon.ico',
         // webPreferences: {
         //     preload: path.join(__dirname, 'preload.js')
         //   }
@@ -14,7 +14,7 @@ const createWindow = () => {
     win.loadFile('index.html')
 }
 
-
+app.disableHardwareAcceleration()
 app.whenReady().then(() => {
     createWindow()
 })
