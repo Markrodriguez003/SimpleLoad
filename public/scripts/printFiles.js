@@ -3,38 +3,29 @@
 export default function printFiles(files) {
   console.log("PRINTING FORM");
 
-  var output = document.getElementById("file-menu-load");
-
-  // ICONS ATTACH TO THE LEFT OF PRINTED FILES
-  // VIDEO -> .gif, .avi, .mpeg, ect --> 🎞️
-  // IMAGES  -> .png, .jpg, ect --> 🖻 🖼️
-  // PDF ->  .tiff, .pdf, ect --> 🗒️
-  // TEXT ->  .txt, .rtf, .md, ect --> 📝
-  // COMPRESSED FILE --> .tar, .tarball, .zip, .rar, ect, --> 🗄️
-  // OTHER DATA -> .dat, .file, ect --> 🗋
-  //
-
-  // ICONS FOR FILE TYPE
-  var fileTypeIcon = {
-    video: "🎞️",
-    image: "🖼️",
-    pdf: "🗒️",
-    text: "📝",
-    compressed: "🗋",
-    data: "🗄️",
-  };
-
+  var output = $("#file-menu-load");
+  var iconSrc = "./public/images/icons/folder-outline.svg";
+  var icon = $(
+    `<img src="./public/images/icons/folder-outline.svg"></img>`
+  ).addClass("svg-icon");
 
   //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
   for (var i = 0; i < files.length; i++) {
-    var item = document.createElement("li");
-    var icon = document.createElement("img")
-    icon.src = "./public/images/icons/folder-outline.svg";
-    icon.className = "svg-icon";
-    item.style.listStyleType = "round";
-    item.innerHTML = " /" + files[i].webkitRelativePath;
-    item.ChildNode.before(icon);
-    output.appendChild(item);
+    output.append(
+      $(`<li class="file-list-item"> ${files[i].webkitRelativePath} </li>`)
+        // .text(`${files[i].webkitRelativePath}`)
+        // .prepend(`<img src="./public/images/question.png" class="svg-icon" />`)
+        
+    );
+
+    console.log("file: " + output);
+    // var item = document.createElement("li");
+    // var icon = document.createElement("img");
+    // icon.src = "./public/images/icons/folder-outline.svg";
+    // icon.className = "svg-icon";
+    // item.style.listStyleType = "round";
+    // item.innerHTML = " /" + files[i].webkitRelativePath;
+    // output.appendChild(item);
   }
   // var exampleData =
   //     "Loading File" +
@@ -51,4 +42,4 @@ export default function printFiles(files) {
   // console.log(exampleData);
 
   return false;
-};
+}

@@ -10,14 +10,16 @@ export default function collapsible() {
   colMenu.click((e) => {
     console.log("Hello");
 
+
+    // USE JQUERY HIDE()
     if (colContent.css("display") === "none") {
       // $("#file-menu-load").find("li").css("list-style-type", "square");
       colContent.css("display", "block");
-      colContent.find("li").css({
-        "font-style": "italic",
-        "color": "red",
-        // "list-style-type": "square"
-      });
+      // colContent.find("li").css({
+      //   "font-style": "italic",
+      //   "color": "red",
+      //   // "list-style-type": "square"
+      // });
       colContent.find('li:nth-child(even)').css("background-color", "lightgrey");
 
     } else {
