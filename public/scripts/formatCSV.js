@@ -7,7 +7,7 @@
 // const path = require("path");
 // const fs = require("fs");
 
-module.exports = function (formData, files) {
+ export default function formatCSV (formData, files) {
   var cvsHeaders = [
     "filepath", // FILES
     "client", // FORM

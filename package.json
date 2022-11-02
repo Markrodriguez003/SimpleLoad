@@ -27,7 +27,6 @@
   "homepage": "https://github.com/Markrodriguez003/SimpleLoad#readme",
   "dependencies": {
     "browserify": "^17.0.0",
-    "jquery": "^3.6.1",
     "node-fetch": "^2.6.7",
     "watchify": "^4.0.0"
   },

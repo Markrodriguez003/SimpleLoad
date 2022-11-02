@@ -20,16 +20,16 @@
 // SCRIPTS
 //********************************************************* */
 
- 
-import * as printF from "./printFiles";
-import * as select from "./select";
-import * as writeCSV from "./writeCSV";
-import * as formSubmission from "./formSubmission";
-import * as formatCSV from "./formatCSV";
-import * as $ from "jquery";
-import * as help_modal from ('./help_modal');
-import * as collapsible from ('./collapsible');
- 
+
+import printFiles from "../scripts/printFiles.js";
+import formSubmission from "../scripts/formSubmission.js";
+import collapsible from "../scripts/collapsible.js";
+import formatCSV from "../scripts/formatCSV.js";
+import writeCSV from "../scripts/writeCSV.js";
+import * as select from "../scripts/select.js";
+// import * as $ from "../../node_modules/jquery";
+import * as help_modal from "../scripts/help_modal.js";
+
 //********************************************************* */
 // MAIN
 //********************************************************* */
@@ -37,7 +37,7 @@ import * as collapsible from ('./collapsible');
 
 window.onload = function () {
   console.log("Waiting for files. . . ");
-  coll.collapsible();
+  collapsible();
   //********************************************************* */
   // BROWSE FILE INPUT (FOR LOADING PRODUCTION FOLDER)
   const PRODUCTIONLOAD = document.getElementById("production-folder");
@@ -47,7 +47,7 @@ window.onload = function () {
   //   console.log($(this).val());
   //   console.log(e.target.files[0]);
 
-    
+
   // })
   // DOWNLOAD BUTTON FOR LOADED, PROCESSED & FORMATTED .CSV
   const DOWNLOAD_LOADF = document.getElementById("load-f");
@@ -57,7 +57,7 @@ window.onload = function () {
     PRODUCTIONLOAD.addEventListener("change", function (e) {
       console.log("Using clicked to submit load file");
       // console.log('fileP --> ' + this.val() )
-      console.log('fileP --> ' + e.target.files[0] )
+      console.log('fileP --> ' + e.target.files[0])
 
     });
   //********************************************************* */
@@ -77,7 +77,7 @@ window.onload = function () {
 
       // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE
       // PUT IN SCROLLABLE CAROUSEL AND/OR PAGINATION (n/Flength)
-      printF.printFiles(rawFiles);
+      printFiles(rawFiles);
       //********************************************************* */
 
       //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE)
@@ -87,22 +87,22 @@ window.onload = function () {
 
       // FORM DATA VALIDATION CONDITIONAL
       if (formData.pass === true) {
-      // SAVES FORMATTED DATA BY PASSING VALIDATED DATA + FORM DATA
-      var formattedData = formatCSV(formData, rawFiles);
+        // SAVES FORMATTED DATA BY PASSING VALIDATED DATA + FORM DATA
+        var formattedData = formatCSV(formData, rawFiles);
 
-      // GRABS DOWNLOAD PRODUCTION LOAD FILE BUTTON/ANCHOR
-      var downloadCsvBtn = document.getElementById("download-load-f");
+        // GRABS DOWNLOAD PRODUCTION LOAD FILE BUTTON/ANCHOR
+        var downloadCsvBtn = document.getElementById("download-load-f");
 
-      // ASSIGNS DOWNLOAD .CSV URL TO DOWNLOAD PRODUCTION LOAD FILE
-      downloadCsvBtn.href = writeCSV(formattedData);
+        // ASSIGNS DOWNLOAD .CSV URL TO DOWNLOAD PRODUCTION LOAD FILE
+        downloadCsvBtn.href = writeCSV(formattedData);
 
-      // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
-      downloadCsvBtn.style.display = "block";
+        // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
+        downloadCsvBtn.style.display = "block";
 
-      // CHANGES COLOR TO GREEN IF DOWNLOAD PRODUCTION LOAD FILE BUTTON
-      downloadCsvBtn.style.backgroundColor = "limegreen";
+        // CHANGES COLOR TO GREEN IF DOWNLOAD PRODUCTION LOAD FILE BUTTON
+        downloadCsvBtn.style.backgroundColor = "limegreen";
       } else {
-      console.log("FORM DID NOT VALIDATE!");
+        console.log("FORM DID NOT VALIDATE!");
       }
     });
 

@@ -1,5 +1,5 @@
 
-var $ = require("jquery");
+// import * as $ from "../../node_modules/jquery" 
 export default function collapsible() {
   console.log("I am a function!")
 

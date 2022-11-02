@@ -1,5 +1,5 @@
 // FORM VALIDATOR 
-module.exports = function() {
+export default function formSubmission() {
     var CLIENT_INPUT = document.getElementById("client-code");
     var C_WARNING = document.getElementById("client-warning");
     var MATTER_INPUT = document.getElementById("matter-code");

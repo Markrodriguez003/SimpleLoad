@@ -24,6 +24,10 @@ img {
   padding: 0;
 }
 
+label{
+ 
+  font-weight: bold;;
+}
 
 #file-menu-load{
   overflow: scroll;
