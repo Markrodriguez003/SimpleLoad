@@ -1,6 +1,6 @@
 // PRINTING FILES TO BROWSER
 
-module.exports.printFiles = function (files) {
+export default function printFiles(files) {
   console.log("PRINTING FORM");
 
   var output = document.getElementById("file-menu-load");

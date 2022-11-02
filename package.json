@@ -4,11 +4,10 @@
   "description": "Simple load file creator for uploading large productions into CSDISCO",
   "main": "app.js",
   "scripts": {
-    "begin": "node app.js",
-    "start": "electron main.js",
+    "start": "electron index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Markrodriguez003/SimpleLoad.git"
@@ -29,6 +28,7 @@
   "dependencies": {
     "browserify": "^17.0.0",
     "jquery": "^3.6.1",
+    "node-fetch": "^2.6.7",
     "watchify": "^4.0.0"
   },
   "parserOptions": {

@@ -19,17 +19,22 @@
 
 // SCRIPTS
 //********************************************************* */
-var printF = require("./printFiles");
-var select = require("./select");
-var writeCSV = require("./writeCSV");
-var formSubmission = require ("./formSubmission.js");
-var formatCSV = require("./formatCSV.js");
-var $ = require("jquery")
-var help_modal = require('./help_modal');
-var coll= require('./collapsible')
+
+ 
+import * as printF from "./printFiles";
+import * as select from "./select";
+import * as writeCSV from "./writeCSV";
+import * as formSubmission from "./formSubmission";
+import * as formatCSV from "./formatCSV";
+import * as $ from "jquery";
+import * as help_modal from ('./help_modal');
+import * as collapsible from ('./collapsible');
+ 
 //********************************************************* */
 // MAIN
 //********************************************************* */
+
+
 window.onload = function () {
   console.log("Waiting for files. . . ");
   coll.collapsible();

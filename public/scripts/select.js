@@ -6,7 +6,7 @@ THAT TO POPULATE SELECT FILE
 
 //********************************************************* */
 
-
+ 
 const author = [
   "Mark Rodriguez",
   "dick mcgreenie",
@@ -91,6 +91,7 @@ const DOCTYPE_SELECT = document.getElementById("doctype");
 DOCTYPE_SELECT.addEventListener(
   "click",
   function (event) {
+    console.log("WOHA");
     for (var x = 0; x < dTypes.length; x++) {
       var option = document.createElement("option");
       option.innerHTML = dTypes.sort()[x];

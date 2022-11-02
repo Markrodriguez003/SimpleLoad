@@ -1,35 +1,33 @@
 
-  var $ = require("jquery");
-module.exports.collapsible = function(){
-
-
+var $ = require("jquery");
+export default function collapsible() {
   console.log("I am a function!")
 
-// var colMenu =  document.getElementsByClassName("collapsible");
-var colMenu = $(".collapsible");
-var colContent = $(".content");
+  // var colMenu =  document.getElementsByClassName("collapsible");
+  var colMenu = $(".collapsible");
+  var colContent = $(".content");
 
-colMenu.click((e)=>{
-console.log("Hello");
-  
-if(colContent.css("display") === "none"){
-  // $("#file-menu-load").find("li").css("list-style-type", "square");
-  colContent.css("display", "block");
-  colContent.find("li").css({
-    "font-style": "italic",
-    "color": "red",
-    // "list-style-type": "square"
-  });
-  colContent.find('li:nth-child(even)').css("background-color", "lightgrey");
+  colMenu.click((e) => {
+    console.log("Hello");
 
-} else{
-  colContent.css("display", "none");
+    if (colContent.css("display") === "none") {
+      // $("#file-menu-load").find("li").css("list-style-type", "square");
+      colContent.css("display", "block");
+      colContent.find("li").css({
+        "font-style": "italic",
+        "color": "red",
+        // "list-style-type": "square"
+      });
+      colContent.find('li:nth-child(even)').css("background-color", "lightgrey");
 
-}
-      
-    
-})
+    } else {
+      colContent.css("display", "none");
 
-return false;
+    }
+
+
+  })
+
+  return false;
 
 }
