@@ -12,6 +12,7 @@ const createWindow = () => {
     })
     win.webContents.openDevTools();
     win.loadFile('index.html')
+ 
 }
 
 app.disableHardwareAcceleration()
@@ -24,3 +25,6 @@ app.on('window-all-closed', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
 })
 
+try {
+    require('electron-reloader')(module)
+  } catch (_) {}

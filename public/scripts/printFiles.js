@@ -1,32 +1,28 @@
 // PRINTING FILES TO BROWSER
-
+//REFERENCES 
+//https://www.youtube.com/watch?v=wmp18_OiRLk&ab_channel=CodingShiksha
 export default function printFiles(files) {
   console.log("PRINTING FORM");
-
+  var dire
   var output = $("#file-menu-load");
-  var iconSrc = "./public/images/icons/folder-outline.svg";
-  var icon = $(
-    `<img src="./public/images/icons/folder-outline.svg"></img>`
-  ).addClass("svg-icon");
+  var item = $('<li> </li>').setAttr;
+ 
 
   //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
   for (var i = 0; i < files.length; i++) {
-    output.append(
-      $(`<li class="file-list-item"> ${files[i].webkitRelativePath} </li>`)
-        // .text(`${files[i].webkitRelativePath}`)
-        // .prepend(`<img src="./public/images/question.png" class="svg-icon" />`)
-        
-    );
+    var item = $();
+      output.append(item);
+      // output.append(`<li>  /${files[i].webkitRelativePath} </li>`);
 
-    console.log("file: " + output);
-    // var item = document.createElement("li");
-    // var icon = document.createElement("img");
-    // icon.src = "./public/images/icons/folder-outline.svg";
-    // icon.className = "svg-icon";
-    // item.style.listStyleType = "round";
-    // item.innerHTML = " /" + files[i].webkitRelativePath;
-    // output.appendChild(item);
   }
+
+
+
+
+
+//  OLD CODE
+//****************************************************************************** */
+
   // var exampleData =
   //     "Loading File" +
   //     " " +

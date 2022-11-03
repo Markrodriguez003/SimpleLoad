@@ -40,13 +40,7 @@ label{
   overflow: scroll;
 }
 
-.file-list-item{
-  /* display:inline-block; */
-  margin:0;
-  color:purple;
-  font-weight: bold;
-  list-style-type: square;
-}
+ 
 #help-icon {
   /* display: inline; */
   position: absolute;
