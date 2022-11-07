@@ -34,6 +34,7 @@
     "sourceType": "module"
   },
   "devDependencies": {
-    "electron": "^21.2.1"
+    "electron": "^21.2.1",
+    "electron-reloader": "^1.2.3"
   }
 }

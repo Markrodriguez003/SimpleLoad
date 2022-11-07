@@ -1,5 +1,14 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path')
+const { app, BrowserWindow,remote } = require('electron');
+const path = require('path');
+
+let userHomePath = app.getPath('home');
+
+
+// ELECTRON HOT-LOAD
+try {
+	require('electron-reloader')(module);
+} catch {}
+
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -12,12 +21,14 @@ const createWindow = () => {
     })
     win.webContents.openDevTools();
     win.loadFile('index.html')
- 
+    
+   
 }
 
 app.disableHardwareAcceleration()
 app.whenReady().then(() => {
     createWindow()
+    
 })
 
 app.on('window-all-closed', () => {
@@ -25,6 +36,11 @@ app.on('window-all-closed', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
 })
 
+
+
+
 try {
     require('electron-reloader')(module)
   } catch (_) {}
+
+

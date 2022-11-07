@@ -12,7 +12,7 @@ export default function writeCVS(data) {
   var loadFile = null;
 
   // CREATES NEW BLOB (.CSV) FILE AND LOADS IT WITH FORMATTED FILES
-  var _LData = new Blob([data], { type: "text/csv" });
+  var _LData = new Blob([data], { type: "text/csv;base64" });
 
   // MAKES SURE THAT THERE IS NO MEMORY LEAKS AND FILE IS ERASED AFTER
   if (loadFile !== null) {
@@ -28,7 +28,8 @@ export default function writeCVS(data) {
   // SETS .CSV DOWNLOAD URL & FILE TYP
   DOWNLOAD_LOADF.setAttribute(
     "href",
-    "data:text/csv; charset=utf-8," + encodeURI(loadFile)
+    // "data:text/csv;base64; charset=utf-8," + encodeURI(loadFile)
+    "data:text/csv;base64; charset=utf-8," + btoa(loadFile)
   );
 
   // SETS ANCHOR / BUTTON TO DOWNLOAD AND NAMES ASSIGNS FILE NAME FOR .CSV

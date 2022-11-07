@@ -30,6 +30,11 @@ import * as select from "../scripts/select.js";
 // import * as $ from "../../node_modules/jquery";
 import * as help_modal from "../scripts/help_modal.js";
 
+// import electron from '../../node_modules/';
+
+// const configDir =  (electron.app || electron.remote.app).getPath('userData');
+// console.log(configDir);
+
 //********************************************************* */
 // MAIN
 //********************************************************* */

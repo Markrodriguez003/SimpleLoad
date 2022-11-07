@@ -1,16 +1,11 @@
 
 // import * as $ from "../../node_modules/jquery" 
 export default function collapsible() {
-  console.log("I am a function!")
-
   // var colMenu =  document.getElementsByClassName("collapsible");
   var colMenu = $(".collapsible");
   var colContent = $(".content");
 
   colMenu.click((e) => {
-    console.log("Hello");
-
-
     // USE JQUERY HIDE()
     if (colContent.css("display") === "none") {
       // $("#file-menu-load").find("li").css("list-style-type", "square");
