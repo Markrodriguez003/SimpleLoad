@@ -1,6 +1,11 @@
 // PRINTING FILES TO BROWSER
 //REFERENCES
 //https://www.youtube.com/watch?v=wmp18_OiRLk&ab_channel=CodingShiksha
+
+// const app = required('electron');
+// import {app} from "electron"
+// const userHomePath = app.getPath('home');
+
 export default function printFiles(files) {
   console.log("Printing Files. . . ");
   // var dire
@@ -10,7 +15,7 @@ export default function printFiles(files) {
   //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
   for (var i = 0; i < files.length; i++) {
     var item = files[i];
-    output.append(`<li>  /${files[i].webkitRelativePath} </li>`);
+    output.append(`<li> ${userHomePath}/${files[i].webkitRelativePath} </li>`);
   }
 
   //  OLD CODE

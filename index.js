@@ -15,9 +15,11 @@ const createWindow = () => {
         width: 900,
         height:720,
         icon: __dirname + '/public/images/icon.ico',
-        // webPreferences: {
-        //     preload: path.join(__dirname, 'preload.js')
-        //   }
+        webPreferences: {
+            nodeIntegration: false,
+            preload: __dirname + '/preload.js'
+          }
+ 
     })
     win.webContents.openDevTools();
     win.loadFile('index.html')

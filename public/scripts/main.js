@@ -13,8 +13,6 @@
 // https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
 //https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
-
-
 // On Chrome/Chromium based apps like electron you can just use the target.files:! 
 
 // SCRIPTS
