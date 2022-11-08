@@ -13,19 +13,17 @@
 // https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
 //https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
-// On Chrome/Chromium based apps like electron you can just use the target.files:! 
+// On Chrome/Chromium based apps like electron you can just use the target.files:!
 
 // SCRIPTS
 //********************************************************* */
 
-
 import printFiles from "../scripts/printFiles.js";
-import formSubmission from "../scripts/formSubmission.js";
+import formValidator from "./formValidator.js";
 import collapsible from "../scripts/collapsible.js";
 import formatCSV from "../scripts/formatCSV.js";
 import writeCSV from "../scripts/writeCSV.js";
 import * as select from "../scripts/select.js";
-// import * as $ from "../../node_modules/jquery";
 import * as help_modal from "../scripts/help_modal.js";
 
 // import electron from '../../node_modules/';
@@ -37,21 +35,17 @@ import * as help_modal from "../scripts/help_modal.js";
 // MAIN
 //********************************************************* */
 
-
 window.onload = function () {
   console.log("Waiting for files. . . ");
+
+  //********************************************************* */
+  // PRINT FUNCTION THAT DISPLAYS ALL FILES FROM .CSV
+  //********************************************************* */
   collapsible();
   //********************************************************* */
   // BROWSE FILE INPUT (FOR LOADING PRODUCTION FOLDER)
   const PRODUCTIONLOAD = document.getElementById("production-folder");
-  // const PRODUCTIONLOAD = $("#production-folder");
 
-  // PRODUCTIONLOAD.change(function(e){
-  //   console.log($(this).val());
-  //   console.log(e.target.files[0]);
-
-
-  // })
   // DOWNLOAD BUTTON FOR LOADED, PROCESSED & FORMATTED .CSV
   const DOWNLOAD_LOADF = document.getElementById("load-f");
 
@@ -59,9 +53,6 @@ window.onload = function () {
   PRODUCTIONLOAD &&
     PRODUCTIONLOAD.addEventListener("change", function (e) {
       console.log("Using clicked to submit load file");
-      // console.log('fileP --> ' + this.val() )
-      console.log('fileP --> ' + e.target.files[0])
-
     });
   //********************************************************* */
 
@@ -84,7 +75,7 @@ window.onload = function () {
       //********************************************************* */
 
       //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE)
-      var formData = formSubmission(); // CHANGE TO FORM VALIDATOR
+      var formData = formValidator(); // CHANGE TO FORM VALIDATOR
 
       //********************************************************* */
 

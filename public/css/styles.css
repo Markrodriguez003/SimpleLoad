@@ -38,19 +38,19 @@ label{
 }
 
 /* ************************************ */
-/* PRINT AREA FOR INDIVIDUAL DOCUMENT */
+/* PRINT AREA FOR INDIVIDUAL FILES UPLOADED  */
 /* ************************************ */
 #file-menu-load{
   background-color: #fff;
   overflow: scroll;
-  border: 2px solid rgb(232, 232, 232);
-  padding:5px;
+  /* border: 2px solid rgb(232, 232, 232); */
+  /* padding:5px; */
 
 }
 
 #file-menu-load li{
 letter-spacing: 1px;
-margin:2px 0px 2px 0px;
+/* margin:2px 0px 2px 0px; */
 /* font-family: 'Courier New', Courier, monospace; */
 }
 #file-menu-load li:nth-child(even){
@@ -183,7 +183,9 @@ select {
   text-decoration: none;
 }
 
-/* The Modal (background) */
+/* ************************************ */
+/* MODAL */
+/* ************************************ */
 .help-modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -197,8 +199,6 @@ select {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-
-/* Modal Content/Box */
 
 .modal-content #close-btn {
   display: absolute;
@@ -216,7 +216,7 @@ select {
   margin-right: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 100%;
   /* height: 100%; */
   transform: scale(0.8);
   margin-top: 20px;
@@ -238,6 +238,10 @@ select {
   cursor: pointer;
 }
 
+
+/* ************************************ */
+/* FILE BROWSE/UPLOAD BUTTON  */
+/* ************************************ */
 #production-folder::-webkit-file-upload-button {
   visibility: hidden;
 }
@@ -263,8 +267,29 @@ font-size: 10pt;
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
-/* COLLAPSABLE PRINTED FILE MENU */
+/* ************************************ */
+/* FOOTER PROMPT MESSAGE */
+/* ************************************ */
 
+#footer-prompt{
+  display: block;
+  position: fixed;
+  bottom:-40px;
+  left:0;
+  width: 100%;
+  height: 5%;
+  text-align: center;
+  background-color:rgb(170, 17, 17);
+  transition: 0.4s ease-in-out;
+  padding: 2px;
+  color:white;
+  font-weight: bold
+}
+
+ 
+/* ************************************ */
+/* COLLAPSABLE PRINTED FILE MENU */
+/* ************************************ */
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
   background-color: #eee;

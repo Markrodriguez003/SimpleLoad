@@ -16,7 +16,11 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close" id="close-btn">&times;</span>
-        <img src="public/images/help-sheet.png" alt="help-sheet" id="help-sheet" />
+        <img
+          src="public/images/help-sheet.png"
+          alt="help-sheet"
+          id="help-sheet"
+        />
       </div>
     </div>
     <!-- -->
@@ -33,7 +37,6 @@
           alt="Folder-Logo-guy"
           id="loaderLogo"
         />
-        <!-- <h1>Document Production Load File Creator -</h1> -->
       </div>
 
       <!-- RIGHT SIDE FORM -->
@@ -108,7 +111,7 @@
         <small id="production-warning" style="display: none; color: red">
           ❌ Please Upload a production folder! ❌
         </small>
-<!-- https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ -->
+        <!-- https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ -->
         <input
           type="file"
           id="production-folder"
@@ -118,24 +121,27 @@
         <!-- ICONS 🔮 🪄 📖📦 📁 📂 🗃️ 🔄-->
         <a href="#" id="load-f"> LOAD PRODUCTION</a>
         <a id="download-load-f" style="display: none">DOWNLOAD LOAD FILE</a>
-        <button class="resetBtn"> 📖 START NEW LOAD FILE</button>
+        <button class="resetBtn">📖 START NEW LOAD FILE</button>
       </form>
     </div>
     <hr />
 
     <!-- COLLAPSIBLE -->
     <!-- ADD 🔍 FILTERS FOR FILE TYPE, FOLDER AND DATE -->
-    <button type="button" class="collapsible">
+    <button type="button" id="collapsible">
       UPLOADED FILES <span>▼</span>
     </button>
-    <div class="content">
+    <div id="content">
       <ul id="file-menu-load"></ul>
     </div>
+
+    <div id="footer-prompt">
+      <!-- <div class="SuccessMsg">SUCCESSFUL!</div> -->
+
+    </div>
   </body>
-  
+
   <script type="module" src="public/scripts/main.js"></script>
   <script type="module" src="public/scripts/jquery.js"></script>
   <!-- <script src="./renderer.js"></script> -->
 </html>
-
- 

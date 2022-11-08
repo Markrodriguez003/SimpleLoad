@@ -77,7 +77,7 @@ export default function formatCSV(formData, files) {
     row.push(formData.author.replace(/,/g, ""));
     row.push(formData.doctype.replace(/,/g, ""));
     row.push(files[i].name.replace(/,/g, ""));
-    row.push(files[i].type.replace(/,/g, ""));
+    row.push(files[i].type);
     row.push(formData.netdocs.replace(/,/g, ""));
 
     //PUSH NEW ROW INTO CSV
