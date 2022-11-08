@@ -23,6 +23,7 @@ import formValidator from "./formValidator.js";
 import collapsible from "../scripts/collapsible.js";
 import formatCSV from "../scripts/formatCSV.js";
 import writeCSV from "../scripts/writeCSV.js";
+import * as inputClear from  "../scripts/inputClear.js"
 import * as select from "../scripts/select.js";
 import * as help_modal from "../scripts/help_modal.js";
 
@@ -61,24 +62,19 @@ window.onload = function () {
     DOWNLOAD_LOADF.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-
       console.log("User clicked download load file btn.");
 
       // GRABS ALL FILES USER LOADED USING LOAD FILE INPUT
       var rawFiles = PRODUCTIONLOAD.files;
 
       //********************************************************* */
-
       // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE
       // PUT IN SCROLLABLE CAROUSEL AND/OR PAGINATION (n/Flength)
       printFiles(rawFiles);
       //********************************************************* */
-
       //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE)
       var formData = formValidator(); // CHANGE TO FORM VALIDATOR
-
       //********************************************************* */
-
       // FORM DATA VALIDATION CONDITIONAL
       if (formData.pass === true) {
         // SAVES FORMATTED DATA BY PASSING VALIDATED DATA + FORM DATA
@@ -99,7 +95,6 @@ window.onload = function () {
         console.log("FORM DID NOT VALIDATE!");
       }
     });
-
   //********************************************************* */
 
   // REFRESH PAGE BUTTON

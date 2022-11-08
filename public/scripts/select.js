@@ -1,12 +1,6 @@
-/* 
-
-REFACTOR THIS SO THE SELECT JUST GRABS THE TARGET SELECT LABEL AND USES 
-THAT TO POPULATE SELECT FILE
-*/
-
 //********************************************************* */
-
- 
+// AUTHOR SELECT OPTION DATA
+//********************************************************* */
 const author = [
   "Mark Rodriguez",
   "dick mcgreenie",
@@ -35,7 +29,9 @@ const author = [
   "Min Azahares",
   "Antonio Hernandez",
 ];
+//********************************************************* */
 // DOCTYPE SELECT OPTION DATA
+//********************************************************* */
 const dTypes = [
   "Order",
   "Motion",
@@ -84,26 +80,26 @@ const dTypes = [
   "Guarantee",
   "Waiver",
 ];
-
-
-// SELECT OPTION FOR DOCTYPE
-const DOCTYPE_SELECT = document.getElementById("doctype");
-DOCTYPE_SELECT.addEventListener(
-  "click",
-  function (event) {
-    console.log("WOHA");
-    for (var x = 0; x < dTypes.length; x++) {
-      var option = document.createElement("option");
-      option.innerHTML = dTypes.sort()[x];
-      option.value = dTypes[x];
-      DOCTYPE_SELECT.appendChild(option);
-    }
-  },
-  false
-);
 //********************************************************* */
-
+// SELECT OPTION FOR DOCTYPE
+//********************************************************* */
+const DOCTYPE_SELECT = document.getElementById("doctype");
+DOCTYPE_SELECT &&
+  DOCTYPE_SELECT.addEventListener(
+    "click",
+    function (event) {
+      for (var x = 0; x < dTypes.length; x++) {
+        var option = document.createElement("option");
+        option.innerHTML = dTypes.sort()[x];
+        option.value = dTypes[x];
+        DOCTYPE_SELECT.appendChild(option);
+      }
+    },
+    false // delete?
+  );
+//********************************************************* */
 // SELECT OPTION FOR AUTHOR
+//********************************************************* */
 const AUTHOR_SELECT = document.getElementById("author");
 AUTHOR_SELECT &&
   AUTHOR_SELECT.addEventListener(
@@ -116,5 +112,5 @@ AUTHOR_SELECT &&
         AUTHOR_SELECT.appendChild(option);
       }
     },
-    false
+    false // delete?
   );

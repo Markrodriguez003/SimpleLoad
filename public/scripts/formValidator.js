@@ -1,79 +1,120 @@
 // FORM VALIDATOR
-import  footerPrompt  from "../scripts/footerPrompt.js";
-
+import footerPrompt from "../scripts/footerPrompt.js";
+var CLIENT_INPUT = document.getElementById("client-code");
+var MATTER_INPUT = document.getElementById("matter-code");
+var NETDOCS_INPUT = document.getElementById("netdocs-directory");
+const DOCTYPE_SELECT = document.getElementById("doctype");
+const AUTHOR_SELECT = document.getElementById("author");
+const PRODUCTION_INPUT = document.getElementById("production-folder");
+var numbers = /^[0-9]+$/;
 export default function formValidator() {
-  var CLIENT_INPUT = document.getElementById("client-code");
-  var C_WARNING = document.getElementById("client-warning");
-  var MATTER_INPUT = document.getElementById("matter-code");
-  var M_WARNING = document.getElementById("matter-warning");
-  var NETDOCS_INPUT = document.getElementById("netdocs-directory");
-  var N_WARNING = document.getElementById("netdocs-warning");
-  const DOCTYPE_SELECT = document.getElementById("doctype");
-  var D_WARNING = document.getElementById("doctype-warning");
-  const AUTHOR_SELECT = document.getElementById("author");
-  var A_WARNING = document.getElementById("author-warning");
+  var v = client_validator();
+  var w = matter_validator();
+  var x = author_validator();
+  var y = doctypes_validator();
+  var z = netdocs_validator();
+  var zz = file_upload_validator() 
 
-  var numbers = /^[0-9]+$/;
-
-  if (!CLIENT_INPUT.value.match(numbers)) {
-    console.log("CLIENT DIGITS " + CLIENT_INPUT.value.length);
-    console.log("CLIENT IS " + CLIENT_INPUT.value);
-    CLIENT_INPUT.style.borderColor = "red";
-    CLIENT_INPUT.style.backgroundColor = "red";
-    footerPrompt("red", "❌ ERRORS WERE FOUND IN THE FORM!");
-    // CLIENT_INPUT.style.Color = "red";
-    // C_WARNING.style.display = "block";
-  } else {
-    console.log("CLIENT IS EXACTLY 5 DIGITS");
-    CLIENT_INPUT.style.borderColor = "black";
-    CLIENT_INPUT.style.Color = "black";
-    CLIENT_INPUT.style.backgroundColor = "white";
-    // C_WARNING.style.display = "none";
-
+  if (v === true && w === true && x === true && y === true && z === true && zz === true) {
     footerPrompt("green", "✅ FILE SUCESSFULLY CONVERTED!");
+    return {
+      pass: true,
+      client: CLIENT_INPUT.value,
+      matter: MATTER_INPUT.value,
+      netdocs: NETDOCS_INPUT.value,
+      author: AUTHOR_SELECT.value,
+      doctype: DOCTYPE_SELECT.value,
+    };
+  } else {
+    footerPrompt("red", "❌ ERRORS WERE FOUND IN THE FORM!");
+    return {
+      pass: false,
+    };
   }
-
-  return {
-    pass: true,
-    client: CLIENT_INPUT.value,
-    matter: MATTER_INPUT.value,
-    netdocs: NETDOCS_INPUT.value,
-    author: AUTHOR_SELECT.value,
-    doctype: DOCTYPE_SELECT.value,
-  }; // returns author, netdocs, doctype, matter, client
 }
 
-// MATTER INPUT VALIDATOR
-// MATTER_INPUT.addEventListener("input", (e) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     var input = document.getElementById("matter-code");
+function client_validator() {
+  if (CLIENT_INPUT.value.match(numbers) && CLIENT_INPUT.value.length === 5) {
+    console.log("CLIENT IS EXACTLY 5 DIGITS!");
+    return true;
+  } else {
+    console.log("CLIENT IS EXACTLY NOT 5 DIGITS!");
+    CLIENT_INPUT.style.borderColor = "red";
+    CLIENT_INPUT.style.backgroundColor = "red";
+    return false;
+  }
+}
 
-//     if (!MATTER_INPUT.value.match(numbers)) {
-//         console.log("CLIENT DIGITS " + MATTER_INPUT.value.length)
-//         console.log("CLIENT IS " + MATTER_INPUT.value)
-//         MATTER_INPUT.style.borderColor = "red";
-//         MATTER_INPUT.style.Color = "red";
-//         MATTER_INPUT.style.backgroundColor = "red";
-//         M_WARNING.style.display = "block"
-//     } else {
-//         console.log("CLIENT IS EXACTLY 5 DIGITS")
-//         MATTER_INPUT.style.borderColor = "black";
-//         MATTER_INPUT.style.Color = "black";
-//         MATTER_INPUT.style.backgroundColor = "white";
-//         M_WARNING.style.display = "none"
+function matter_validator() {
+  if (MATTER_INPUT.value.match(numbers) && MATTER_INPUT.value.length === 4) {
+    console.log("MATTER IS EXACTLY 4 DIGITS!");
+    return true;
+  } else {
+    console.log("MATTER IS EXACTLY NOT 4 DIGITS!");
+    MATTER_INPUT.style.borderColor = "red";
+    MATTER_INPUT.style.backgroundColor = "red";
+    return false;
+  }
+}
 
-//     }
+// && NETDOCS_INPUT.value === /^(\/?[a-z0-9]+)+$/
+function netdocs_validator() {
+  if (
+    NETDOCS_INPUT.value != null &&
+    NETDOCS_INPUT.value != undefined &&
+    NETDOCS_INPUT.value != ""
+  ) {
+    console.log("NETDOCS FIELD IS FILLED!");
+    return true;
+  } else {
+    console.log("NETDOCS FIELD IS NOT FILLED!");
+    NETDOCS_INPUT.style.borderColor = "red";
+    NETDOCS_INPUT.style.backgroundColor = "red";
+    return false;
+  }
+}
 
-// })
+function author_validator() {
+  if (
+    AUTHOR_SELECT.value != null &&
+    AUTHOR_SELECT.value != undefined &&
+    AUTHOR_SELECT.value != "" &&
+    AUTHOR_SELECT.value != undefined
+  ) {
+    console.log("AUTHOR SELECTION IS FILLED!");
+    return true;
+  } else {
+    AUTHOR_SELECT.style.borderColor = "red";
+    AUTHOR_SELECT.style.backgroundColor = "red";
+    console.log("AUTHOR SELECTION IS NOT FILLED!");
+    return false;
+  }
+}
 
-/* **********************
-if(CLIENT_INPUT.value.length != 5) {
-    console.log("CLIENT DIGITS " + CLIENT_INPUT.value.length)
-    console.log("CLIENT IS " + CLIENT_INPUT.value)
-    CLIENT_INPUT.style.borderColor="red";
-    CLIENT_INPUT.style.Color="red";
-    CLIENT_INPUT.style.backgroundColor="red";
-    C_WARNING.style.display ="block"
-} 
-*/
+function doctypes_validator() {
+  if (
+    DOCTYPE_SELECT.value != null &&
+    DOCTYPE_SELECT.value != "" &&
+    DOCTYPE_SELECT.value != undefined
+  ) {
+    console.log("DOCTYPES SELECTION IS FILLED!");
+    return true;
+  } else {
+    DOCTYPE_SELECT.style.borderColor = "red";
+    DOCTYPE_SELECT.style.backgroundColor = "red";
+    console.log("DOCTYPES SELECTION IS NOT FILLED!");
+    return false;
+  }
+}
+
+function file_upload_validator() {
+  if (PRODUCTION_INPUT.files.length > 0) {
+    console.log("PRODUCTION FOLDER HAS BEEN UPLOADED!");
+    return true;
+  } else {
+    // DOCTYPE_SELECT.style.borderColor = "red";
+    // DOCTYPE_SELECT.style.backgroundColor = "red";
+    console.log("PRODUCTION FOLDER HAS NOT BEEN UPLOADED!");
+    return false;
+  }
+}

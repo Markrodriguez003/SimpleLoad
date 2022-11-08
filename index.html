@@ -54,41 +54,41 @@
             style="font-weight: bold; margin-bottom: 10px"
             >Client:</label
           >
-          <input type="text" id="client-code" name="client-code" />
-          <small id="client-warning" style="display: none; color: red">
-            ❌ Client # must be 5 numerical digits! ❌
-          </small>
+          <input
+            type="text"
+            id="client-code"
+            name="client-code"
+            required
+            placeholder="5 Digit Client Code"
+          />
           <br />
           <label
             for="matter-code"
             style="font-weight: bold; margin-bottom: 10px"
             >Matter:</label
           >
-          <input type="text" id="matter-code" name="matter-code" />
-          <small id="matter-warning" style="display: none; color: red"
-            >❌ Matter # must be 4 numerical digits! ❌
-          </small>
+          <input
+            type="text"
+            id="matter-code"
+            name="matter-code"
+            required
+            placeholder="4 Digit Matter Code"
+          />
         </div>
         <br />
         <div>
           <label for="author" style="font-weight: bold; margin-bottom: 10px"
             >Author:</label
           >
-          <select name="author" id="author">
+          <select name="author" id="author" >
             <option></option>
           </select>
-          <small id="author-warning" style="display: none; color: red">
-            ❌ Please select an author! ❌
-          </small>
           <label for="doctype" style="font-weight: bold; margin-bottom: 10px"
             >Doctype:</label
           >
           <select name="doctype" id="doctype">
             <option></option>
           </select>
-          <small id="doctype-warning" style="display: none; color: red">
-            ❌ Please select a doctype! ❌
-          </small>
         </div>
         <br />
         <div>
@@ -97,9 +97,7 @@
             style="font-weight: bold; margin-right: -40px"
             >NetDocs Directory:</label
           >
-          <input type="text" id="netdocs-directory" name="netdocs-directory" />
-          <small id="netdocs-warning" style="display: none; color: red">
-            ❌ Please enter a valid directory folder! ❌
+          <input type="text" id="netdocs-directory" name="netdocs-directory"  required placeholder="NetDocs Directory Location"/>
           </small>
         </div>
         <br />
@@ -108,9 +106,6 @@
           style="font-weight: bold; margin-bottom: 10px"
           >Select root production folder:</label
         >
-        <small id="production-warning" style="display: none; color: red">
-          ❌ Please Upload a production folder! ❌
-        </small>
         <!-- https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ -->
         <input
           type="file"
@@ -137,7 +132,6 @@
 
     <div id="footer-prompt">
       <!-- <div class="SuccessMsg">SUCCESSFUL!</div> -->
-
     </div>
   </body>
 

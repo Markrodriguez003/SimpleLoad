@@ -71,7 +71,7 @@ export default function formatCSV(formData, files) {
     // row.push(`"\""${charFix(formData.netdocs)}"\""`);
 
     // ASK NETDOCS ABOUT COMMAS "/netdocs/Production_1,24/b\n"
-    row.push(`\r${files[i].webkitRelativePath}`.replace(/,/g, ""));
+    row.push(`\r /${files[i].webkitRelativePath}`.replace(/,/g, ""));
     row.push(formData.client.replace(/,/g, ""));
     row.push(formData.matter.replace(/,/g, ""));
     row.push(formData.author.replace(/,/g, ""));
