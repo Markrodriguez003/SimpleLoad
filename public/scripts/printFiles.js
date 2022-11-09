@@ -8,14 +8,13 @@
 
 export default function printFiles(files) {
   console.log("Printing Files. . . ");
-  var output = $("#file-menu-load");
-  var item = $("<li> </li>").setAttr;
+  var output = document.getElementById("file-menu-load");
 
   //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
   for (var i = 0; i < files.length; i++) {
-    var item = files[i];
-    output.append(`<li>/${files[i].webkitRelativePath} </li>`);
-    // output.append(`<li> ${userHomePath}/${files[i].webkitRelativePath} </li>`);
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(files[i].webkitRelativePath)); 
+    output.appendChild(li);
   }
 
   //  OLD CODE
