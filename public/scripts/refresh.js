@@ -1,6 +1,9 @@
 //********************************************************* */
 import footerPrompt from "./footerPrompt.js";
 
+
+// Add a way of clearing all forms and printed files?
+
  // REFRESH PAGE BUTTON
 const refreshButton = document.getElementById("resetBtn");
 // BUTTON THAT CLEARS FORM AND REFRESHES ENTIRE PAGE.
