@@ -27,6 +27,8 @@ import * as inputClear from "../scripts/inputClear.js";
 import * as select from "../scripts/select.js";
 import * as help_modal from "../scripts/help_modal.js";
 
+import footerPrompt from "../scripts/footerPrompt.js";
+
 // import electron from '../../node_modules/';
 
 // const configDir =  (electron.app || electron.remote.app).getPath('userData');
@@ -99,12 +101,15 @@ window.onload = function () {
   //********************************************************* */
 
   // REFRESH PAGE BUTTON
-  const refreshButton = document.querySelector(".resetBtn");
+  const refreshButton = document.getElementById("resetBtn");
 
   // BUTTON THAT CLEARS FORM AND REFRESHES ENTIRE PAGE.
   refreshButton.addEventListener("click", (e) => {
     e.preventDefault(); // Eliminates previous HTTP headers
     location.reload(); // Refresh entire page
+    console.log("Page cleared . . . ");
+    
+   const refreshedPg = setTimeout(footerPrompt("cornflowerblue", "🔄 FORM HAS BEEN REFRESHED!"), 3000);
   });
 
   //********************************************************* */
