@@ -24,36 +24,47 @@ img {
   padding: 0;
 }
 
-label{
- 
-  font-weight: bold;;
+label {
+  font-weight: bold;
 }
 
-.svg-icon{
+.svg-icon {
   transform: scale(0.1);
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 /* ************************************ */
 /* PRINT AREA FOR INDIVIDUAL FILES UPLOADED  */
 /* ************************************ */
-#file-menu-load{
+#file-menu-load {
   background-color: #fff;
-  overflow: scroll;
+  /* overflow: scroll; */
   /* border: 2px solid rgb(232, 232, 232); */
   /* padding:5px; */
-
 }
 
-#file-menu-load li{
-letter-spacing: 1px;
-/* margin:2px 0px 2px 0px; */
-/* font-family: 'Courier New', Courier, monospace; */
+#file-menu-load li {
+  letter-spacing: 1px;
+  padding: 6px 0px;
+  list-style-type: circle;
+
+
+  /* margin:2px 0px 2px 0px; */
+  font-family: 'Courier', Courier, monospace;
 }
-#file-menu-load li:nth-child(even){
-    background-color: #ccc;
+#file-menu-load li:nth-child(even) {
+  background-color: #ccc;
 }
+
+#contentMsg{
+  display: block;
+  padding: 20px 0px;
+  text-align: center;
+  font-style: italic;
+  
+}
+
 
 #help-icon {
   /* display: inline; */
@@ -72,7 +83,7 @@ letter-spacing: 1px;
   height: auto;
 }
 
-h1{
+h1 {
   /* text-shadow: 2px 1px 2px #982300; */
   /* color: hotpink; */
   -webkit-text-stroke-width: 2px;
@@ -124,7 +135,7 @@ h1{
   align-content: flex-start;
   margin: 20px;
   background-color: rgba(255, 255, 255, 0.648);
-  padding:2px;
+  padding: 2px;
 }
 
 .SimpleForm div {
@@ -233,7 +244,6 @@ select {
   cursor: pointer;
 }
 
-
 /* ************************************ */
 /* FILE BROWSE/UPLOAD BUTTON  */
 /* ************************************ */
@@ -241,18 +251,18 @@ select {
   visibility: hidden;
 }
 
-#production-folder::before{
-content: "📂 Select Folder";
-border: 4px solid #999;
-/* border-radius: 3px; */
-/* padding: 5px 8px; */
-outline: none;
-white-space: nowrap;
--webkit-user-select: none;
-cursor: pointer;
-text-shadow: 1px 1px #fff;
-font-weight: 700;
-font-size: 10pt;
+#production-folder::before {
+  content: "📂 Select Folder";
+  border: 4px solid #999;
+  /* border-radius: 3px; */
+  /* padding: 5px 8px; */
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
 }
 
 .production-folder:hover::before {
@@ -266,47 +276,52 @@ font-size: 10pt;
 /* FOOTER PROMPT MESSAGE */
 /* ************************************ */
 
-#footer-prompt{
+#footer-prompt {
   display: block;
   position: fixed;
-  bottom:-40px;
-  left:0;
+  bottom: -40px;
+  left: 0;
   width: 100%;
   height: 5%;
   text-align: center;
-  background-color:rgb(170, 17, 17);
+  background-color: rgb(170, 17, 17);
   transition: 0.4s ease-in-out;
   padding-top: 8px;
-  color:white;
-  font-weight: bold
+  color: white;
+  font-weight: bold;
 }
 
- 
 /* ************************************ */
 /* COLLAPSABLE PRINTED FILE MENU */
 /* ************************************ */
 /* Style the button that is used to open and close the collapsible content */
-.collapsible {
+#collapsible {
   background-color: #eee;
-  color: #444;
+  color: black;
   cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
+  padding: 0px;
+  /* width: 100%; */
+  border-bottom: lightslategrey 1px solid;
+  /* text-align: left; */
   outline: none;
   font-size: 15px;
 }
 
+#collapsible span {
+  display: inline-block;
+  transform: rotate(0deg);
+}
+
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
+.active,
+#collapsible:hover {
   background-color: #ccc;
 }
 
 /* Style the collapsible content. Note: hidden by default */
-.content {
+#content {
   padding: 0 18px;
-  display: none;
-  overflow: hidden;
+  display: block;
+  /* overflow: hidden; */
   background-color: #f1f1f1;
 }

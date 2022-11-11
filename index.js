@@ -11,12 +11,13 @@ try {
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 900,
-        height: 720,
+        height: 565,
         icon: __dirname + '/public/images/icon.ico',
         webPreferences: {
             nodeIntegration: false,
             preload: __dirname + '/preload.js'
-        }
+        },
+        resizable: false
     })
     win.webContents.openDevTools();
     win.loadFile('index.html')

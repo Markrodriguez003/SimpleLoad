@@ -1,5 +1,6 @@
 // WRITE CSV LOAD FILE FUNC
 export default function writeCVS(data) {
+
   // GRABS UPLOAD PRODUCTION DIRECTORY ANCHOR / BUTTON
   const LOADFILE = document.getElementById("load-f");
 
@@ -34,6 +35,10 @@ export default function writeCVS(data) {
 
   // SETS ANCHOR / BUTTON TO DOWNLOAD AND NAMES ASSIGNS FILE NAME FOR .CSV
   DOWNLOAD_LOADF.setAttribute("download", "loadfile.csv");
+
+
+   
+  
 
   // FIX THIS?, POSSIBLE INCLUDE THE ASSIGNING HREF OF DOWNLOAD BTN FROM MAIN.JS
 

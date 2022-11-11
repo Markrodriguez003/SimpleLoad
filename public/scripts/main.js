@@ -64,15 +64,15 @@ window.onload = function () {
       e.stopPropagation();
       console.log("User clicked download load file btn.");
 
-      // GRABS ALL FILES USER LOADED USING LOAD FILE INPUT
-      var rawFiles = PRODUCTIONLOAD.files;
-
       //********************************************************* */
       //  SAVES & VALIDATES FORM DATA (TRUE OR FALSE)
       var formData = formValidator(); // CHANGE TO FORM VALIDATOR
       //********************************************************* */
       // FORM DATA VALIDATION CONDITIONAL
       if (formData.pass === true) {
+        // GRABS ALL FILES USER LOADED USING LOAD FILE INPUT
+        var rawFiles = PRODUCTIONLOAD.files;
+
         //********************************************************* */
         // SEND PRODUCTION FILES TO A FUNCTION THAT PRINTS FILES TO PAGE
         // PUT IN SCROLLABLE CAROUSEL AND/OR PAGINATION (n/Flength)
