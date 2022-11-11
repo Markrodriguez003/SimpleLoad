@@ -13,20 +13,13 @@ export default function printFiles(files) {
   //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
   for (var i = 0; i < files.length; i++) {
     var li = document.createElement("li");
-
     li.appendChild(document.createTextNode(files[i].webkitRelativePath));
     output.appendChild(li);
   }
 
-  // TARGETS MAIN LOGO
-  const logo = document.getElementById("loaderLogo");
-  // CHANGES LOGO
-  logo.src = "public/images/simpleloadguy-success..png";
-
-  
   const contentMsg = document.getElementById("contentMsg");
 
-  contentMsg.style.display = "none"
+  contentMsg.style.display = "none";
 
   //  OLD CODE
   //****************************************************************************** */

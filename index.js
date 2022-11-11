@@ -3,6 +3,8 @@ const path = require('path');
 
 let userHomePath = app.getPath('home');
 
+console.log("USERS HOMER PATH --> " + userHomePath);
+
 // ELECTRON HOT-LOAD
 try {
     require('electron-reloader')(module);

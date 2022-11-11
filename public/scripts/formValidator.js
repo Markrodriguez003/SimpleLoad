@@ -13,10 +13,22 @@ export default function formValidator() {
   var x = author_validator();
   var y = doctypes_validator();
   var z = netdocs_validator();
-  var zz = file_upload_validator() 
+  var zz = file_upload_validator();
+  //LOGO
+  const logo = document.getElementById("loaderLogo");
 
-  if (v === true && w === true && x === true && y === true && z === true && zz === true) {
+  if (
+    v === true &&
+    w === true &&
+    x === true &&
+    y === true &&
+    z === true &&
+    zz === true
+  ) {
     footerPrompt("green", "✅ FILE SUCESSFULLY CONVERTED!");
+    // TARGETS MAIN LOGO
+    // CHANGES LOGO
+    logo.src = "public/images/simpleloadguy-success..png";
     return {
       pass: true,
       client: CLIENT_INPUT.value,
@@ -26,6 +38,8 @@ export default function formValidator() {
       doctype: DOCTYPE_SELECT.value,
     };
   } else {
+    logo.src = "public/images/simpleloadguy-failure..png";
+    
     footerPrompt("red", "❌ ERRORS WERE FOUND IN THE FORM!");
     return {
       pass: false,
