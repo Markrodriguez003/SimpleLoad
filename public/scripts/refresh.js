@@ -1,6 +1,8 @@
 //********************************************************* */
 // SETS FOOTER PROMPT MESSAGE
 import footerPrompt from "./footerPrompt.js";
+// RESETS PRINTED FILE ITEMS FROM PREVIOUS LOAD
+import printFiles from "./printFiles.js";
 
 //GRABS FORM ELEMENTS
 const CLIENT_INPUT = document.getElementById("client-code");
@@ -10,7 +12,9 @@ const DOCTYPE_SELECT = document.getElementById("doctype");
 const AUTHOR_SELECT = document.getElementById("author");
 const PRODUCTION_INPUT = document.getElementById("production-folder");
 const refreshColor = "rgb(39, 111, 245)"
-
+const LOGO = document.getElementById("loaderLogo");
+var DOWNLOADCSV = document.getElementById("download-load-f");
+const LOADBUTTON = document.getElementById("load-f");
 // FITS FORM ELEMENTS INTO ARRAY FOR LOOPING
 const elementArry = [
   CLIENT_INPUT,
@@ -35,7 +39,15 @@ export default function refresh(e) {
   // RESETS FILE INPUT
   PRODUCTION_INPUT.value = null;
   console.log("Page cleared and form resetted . . ");
+  LOGO.src = "public/images/simpleloadguy..png";
+
+   // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
+   DOWNLOADCSV.style.display = "none";
+   LOADBUTTON.style.display = "block";
+
+
   //CALLS MESSAGE PROMPT FOOTER
+  printFiles(PRODUCTION_INPUT.files);
   footerPrompt(refreshColor, "🔄 FORM HAS BEEN REFRESHED!");
 } 
  

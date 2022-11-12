@@ -13,7 +13,7 @@ try {
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 900,
-        height: 565,
+        height: 585,
         icon: __dirname + '/public/images/icon.ico',
         webPreferences: {
             nodeIntegration: false,

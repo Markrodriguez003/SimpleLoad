@@ -1,11 +1,5 @@
 // REFERENCES
 //********************************************************* */
-// https://web.dev/read-files/
-// https://web.dev/file-system-access/
-// https://github.com/GoogleChromeLabs/browser-fs-access
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-// https://dev.to/rushankhan1/build-a-cli-with-node-js-4jbi
-// https://stackoverflow.com/questions/43708127/javascript-get-the-filename-and-extension-from-input-type-file
 // https://blog.logrocket.com/how-to-build-a-progressive-web-app-pwa-with-node-js/
 // https://w3c.github.io/FileAPI/#dfn-file
 // https://web.dev/read-files/
@@ -13,7 +7,6 @@
 // https://stackoverflow.com/questions/15201071/how-to-get-full-path-of-selected-file-on-change-of-input-type-file-using-jav
 //https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
-// On Chrome/Chromium based apps like electron you can just use the target.files:!
 
 // SCRIPTS
 //********************************************************* */
@@ -93,7 +86,7 @@ window.onload = function () {
         downloadCsvBtn.style.display = "block";
 
         // CHANGES COLOR TO GREEN IF DOWNLOAD PRODUCTION LOAD FILE BUTTON
-        downloadCsvBtn.style.backgroundColor = "limegreen";
+        downloadCsvBtn.style.backgroundColor = "green";
       } else {
         console.log("FORM DID NOT VALIDATE!");
       }
@@ -108,15 +101,6 @@ window.onload = function () {
     e.preventDefault(); // Eliminates previous HTTP headers
     refresh();
   });
-
-
-  // refreshButton.addEventListener("click", (e) => {
-  //   e.preventDefault(); // Eliminates previous HTTP headers
-  //   location.reload(); // Refresh entire page
-  //   console.log("Page cleared . . . ");
-    
-  //  const refreshedPg = setTimeout(footerPrompt("cornflowerblue", "🔄 FORM HAS BEEN REFRESHED!"), 3000);
-  // });
 
   //********************************************************* */
 }; // EOL for OnLoad

@@ -5,23 +5,37 @@
 // const app = required('electron');
 // import {app} from "electron"
 // const userHomePath = app.getPath('home');
+// `<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
 
+const contentMsg = document.getElementById("contentMsg");
+const output = document.getElementById("file-menu-load");
+const returnArrow = document.getElementById("up-arrow");
 export default function printFiles(files) {
-  console.log("Printing Files. . . ");
-  var output = document.getElementById("file-menu-load");
+  if (files.length > 0) {
+    console.log("Printing Files. . . ");
+    for (var i = 0; i < files.length; i++) {
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(files[i].webkitRelativePath));
+      output.appendChild(li);
+    }
+    contentMsg.style.display = "none";
+    returnArrow.style.display = "inline";
 
-  //`<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
-  for (var i = 0; i < files.length; i++) {
-    var li = document.createElement("li");
-    li.appendChild(document.createTextNode(files[i].webkitRelativePath));
-    output.appendChild(li);
+  } else {
+    // Remove all previous file names
+    returnArrow.style.display = "none";
+    output.innerHTML = "";
+
+
   }
+  return false;
+}
 
-  const contentMsg = document.getElementById("contentMsg");
 
-  contentMsg.style.display = "none";
 
-  //  OLD CODE
+
+
+ //  OLD CODE
   //****************************************************************************** */
 
   // var exampleData =
@@ -37,6 +51,3 @@ export default function printFiles(files) {
   //     " " +
   //     files[5].lastModified;
   // console.log(exampleData);
-
-  return false;
-}

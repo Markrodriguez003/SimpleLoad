@@ -17,8 +17,6 @@ export default function formValidator() {
   var z = netdocs_validator();
   var zz = file_upload_validator();
  
- 
-
   //LOGO
   const logo = document.getElementById("loaderLogo");
 
