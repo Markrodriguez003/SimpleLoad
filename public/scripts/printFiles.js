@@ -31,7 +31,7 @@ export default function printFiles(files) {
   if (downArrow.style.display === "inline") {
     downArrow.addEventListener("click", (e) => {
       output.lastElementChild.scrollIntoView();
-      downArrow.style.display = "none";
+     
     })
   }
   return false;

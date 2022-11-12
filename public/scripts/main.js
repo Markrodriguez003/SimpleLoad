@@ -19,6 +19,7 @@ import writeCSV from "../scripts/writeCSV.js";
 import * as inputClear from "../scripts/inputClear.js";
 import * as select from "../scripts/select.js";
 import * as help_modal from "../scripts/help_modal.js";
+import * as scroll from "../scripts/scroll.js";
 import refresh from "../scripts/refresh.js"
 import footerPrompt from "../scripts/footerPrompt.js";
 
