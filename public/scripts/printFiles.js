@@ -9,7 +9,7 @@
 
 const contentMsg = document.getElementById("contentMsg");
 const output = document.getElementById("file-menu-load");
-const returnArrow = document.getElementById("up-arrow");
+const downArrow = document.getElementById("down-arrow");
 export default function printFiles(files) {
   if (files.length > 0) {
     console.log("Printing Files. . . ");
@@ -19,14 +19,21 @@ export default function printFiles(files) {
       output.appendChild(li);
     }
     contentMsg.style.display = "none";
-    returnArrow.style.display = "inline";
+    downArrow.style.display = "inline";
 
   } else {
     // Remove all previous file names
-    returnArrow.style.display = "none";
+    downArrow.style.display = "none";
     output.innerHTML = "";
+  }
 
 
+  if (downArrow.style.display === "inline") {
+    downArrow.addEventListener("click", (e) => {
+      // var lastItem = output[output.length - 1];
+      output.lastElementChild.scrollIntoView();
+      // console.log("Scrolling down to " + output.lastElementChild.innerHTML);
+    })
   }
   return false;
 }
