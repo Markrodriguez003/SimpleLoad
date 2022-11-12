@@ -7,6 +7,8 @@ const DOCTYPE_SELECT = document.getElementById("doctype");
 const AUTHOR_SELECT = document.getElementById("author");
 const PRODUCTION_INPUT = document.getElementById("production-folder");
 var numbers = /^[0-9]+$/;
+const errorColor =  "rgba(212, 34, 34,1)";
+const errorColorPanel =  "rgba(212, 34, 34,0.4)";
 export default function formValidator() {
   var v = client_validator();
   var w = matter_validator();
@@ -14,6 +16,9 @@ export default function formValidator() {
   var y = doctypes_validator();
   var z = netdocs_validator();
   var zz = file_upload_validator();
+ 
+ 
+
   //LOGO
   const logo = document.getElementById("loaderLogo");
 
@@ -39,8 +44,7 @@ export default function formValidator() {
     };
   } else {
     logo.src = "public/images/simpleloadguy-failure..png";
-    
-    footerPrompt("red", "❌ ERRORS WERE FOUND IN THE FORM!");
+    footerPrompt(errorColor, "❌ ERRORS WERE FOUND IN THE FORM!");
     return {
       pass: false,
     };
@@ -53,8 +57,8 @@ function client_validator() {
     return true;
   } else {
     console.log("CLIENT IS EXACTLY NOT 5 DIGITS!");
-    CLIENT_INPUT.style.borderColor = "red";
-    CLIENT_INPUT.style.backgroundColor = "red";
+    CLIENT_INPUT.style.borderColor = errorColorPanel;
+    CLIENT_INPUT.style.backgroundColor = errorColorPanel;
     return false;
   }
 }
@@ -65,8 +69,8 @@ function matter_validator() {
     return true;
   } else {
     console.log("MATTER IS EXACTLY NOT 4 DIGITS!");
-    MATTER_INPUT.style.borderColor = "red";
-    MATTER_INPUT.style.backgroundColor = "red";
+    MATTER_INPUT.style.borderColor = errorColorPanel;
+    MATTER_INPUT.style.backgroundColor = errorColorPanel;
     return false;
   }
 }
@@ -82,8 +86,8 @@ function netdocs_validator() {
     return true;
   } else {
     console.log("NETDOCS FIELD IS NOT FILLED!");
-    NETDOCS_INPUT.style.borderColor = "red";
-    NETDOCS_INPUT.style.backgroundColor = "red";
+    NETDOCS_INPUT.style.borderColor = errorColorPanel;
+    NETDOCS_INPUT.style.backgroundColor = errorColorPanel;
     return false;
   }
 }
@@ -98,8 +102,8 @@ function author_validator() {
     console.log("AUTHOR SELECTION IS FILLED!");
     return true;
   } else {
-    AUTHOR_SELECT.style.borderColor = "red";
-    AUTHOR_SELECT.style.backgroundColor = "red";
+    AUTHOR_SELECT.style.borderColor = errorColorPanel;
+    AUTHOR_SELECT.style.backgroundColor = errorColorPanel;
     console.log("AUTHOR SELECTION IS NOT FILLED!");
     return false;
   }
@@ -114,8 +118,8 @@ function doctypes_validator() {
     console.log("DOCTYPES SELECTION IS FILLED!");
     return true;
   } else {
-    DOCTYPE_SELECT.style.borderColor = "red";
-    DOCTYPE_SELECT.style.backgroundColor = "red";
+    DOCTYPE_SELECT.style.borderColor = errorColorPanel;
+    DOCTYPE_SELECT.style.backgroundColor = errorColorPanel;
     console.log("DOCTYPES SELECTION IS NOT FILLED!");
     return false;
   }
