@@ -51,10 +51,17 @@ label {
 }
 
 #file-menu-load li {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: flex-start;
+  align-items: center;
   letter-spacing: 1px;
-  padding: 6px 0px;
-  list-style-type: circle;
-
+  font-size: 14px;
+  padding: 0px 0px;
+  margin:0px 0px;
+  list-style-type: none;
+  /* padding-bottom: 20px; */
 
   /* margin:2px 0px 2px 0px; */
   font-family: 'Courier', Courier, monospace;
@@ -100,6 +107,11 @@ label {
 
 }
 
+.file-img{
+  transform:scale(0.4);
+  
+    
+}
 
 
 .help-sheet {

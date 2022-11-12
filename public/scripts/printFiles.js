@@ -15,7 +15,13 @@ export default function printFiles(files) {
     console.log("Printing Files. . . ");
     for (var i = 0; i < files.length; i++) {
       var li = document.createElement("li");
-      li.appendChild(document.createTextNode(files[i].webkitRelativePath));
+      var imgItem = document.createElement("img");
+      imgItem.setAttribute("class", "file-img");
+      imgItem.setAttribute("src", "./public/images/icons/png/xaml.png");
+      // li.before(imgItem);
+      li.appendChild(imgItem);
+      li.appendChild(document.createTextNode(`${files[i].webkitRelativePath}`));
+      li.appendChild(document.createTextNode(`${files[i].size}`));
       output.appendChild(li);
     }
     contentMsg.style.display = "none";
@@ -31,7 +37,7 @@ export default function printFiles(files) {
   if (downArrow.style.display === "inline") {
     downArrow.addEventListener("click", (e) => {
       output.lastElementChild.scrollIntoView();
-        //  downArrow.style.display = "none";
+      //  downArrow.style.display = "none";
     })
   }
   return false;
