@@ -1,5 +1,8 @@
 //********************************************************* */
+// SETS FOOTER PROMPT MESSAGE
 import footerPrompt from "./footerPrompt.js";
+
+//GRABS FORM ELEMENTS
 const CLIENT_INPUT = document.getElementById("client-code");
 const MATTER_INPUT = document.getElementById("matter-code");
 const NETDOCS_INPUT = document.getElementById("netdocs-directory");
@@ -8,6 +11,7 @@ const AUTHOR_SELECT = document.getElementById("author");
 const PRODUCTION_INPUT = document.getElementById("production-folder");
 const refreshColor = "rgb(39, 111, 245)"
 
+// FITS FORM ELEMENTS INTO ARRAY FOR LOOPING
 const elementArry = [
   CLIENT_INPUT,
   MATTER_INPUT,
@@ -17,8 +21,10 @@ const elementArry = [
   PRODUCTION_INPUT
 ];
 
+// FUNCTION THAT RESETS FORM
 export default function refresh(e) {
 
+  // LOOPS THROUGH ARRAY AND RESETS VALUES/CSS 
   elementArry.forEach((v,i,a)=>{
     a[i].value = "";
     a[i].style.borderColor = "rgb(133,133,133)";
@@ -26,10 +32,12 @@ export default function refresh(e) {
 
   }); 
      
+  // RESETS FILE INPUT
   PRODUCTION_INPUT.value = null;
-  console.log("Page cleared and form resetted . . ")
+  console.log("Page cleared and form resetted . . ");
+  //CALLS MESSAGE PROMPT FOOTER
   footerPrompt(refreshColor, "🔄 FORM HAS BEEN REFRESHED!");
-}
+} 
  
 
  
