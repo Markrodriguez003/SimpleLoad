@@ -30,9 +30,8 @@ export default function printFiles(files) {
 
   if (downArrow.style.display === "inline") {
     downArrow.addEventListener("click", (e) => {
-      // var lastItem = output[output.length - 1];
       output.lastElementChild.scrollIntoView();
-      // console.log("Scrolling down to " + output.lastElementChild.innerHTML);
+      downArrow.style.display = "none";
     })
   }
   return false;
