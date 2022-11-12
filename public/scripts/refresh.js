@@ -15,6 +15,7 @@ const refreshColor = "rgb(39, 111, 245)"
 const LOGO = document.getElementById("loaderLogo");
 var DOWNLOADCSV = document.getElementById("download-load-f");
 const LOADBUTTON = document.getElementById("load-f");
+const FILEBODYMSG = document.getElementById("contentMsg");
 // FITS FORM ELEMENTS INTO ARRAY FOR LOOPING
 const elementArry = [
   CLIENT_INPUT,
@@ -29,30 +30,29 @@ const elementArry = [
 export default function refresh(e) {
 
   // LOOPS THROUGH ARRAY AND RESETS VALUES/CSS 
-  elementArry.forEach((v,i,a)=>{
+  elementArry.forEach((v, i, a) => {
     a[i].value = "";
     a[i].style.borderColor = "rgb(133,133,133)";
     a[i].style.backgroundColor = "white";
 
-  }); 
-     
+  });
+
   // RESETS FILE INPUT
   PRODUCTION_INPUT.value = null;
   console.log("Page cleared and form resetted . . ");
   LOGO.src = "public/images/simpleloadguy..png";
-
-   // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
-   DOWNLOADCSV.style.display = "none";
-   LOADBUTTON.style.display = "block";
+  FILEBODYMSG.style.display = "block";
+  // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
+  DOWNLOADCSV.style.display = "none";
+  LOADBUTTON.style.display = "block";
 
 
   //CALLS MESSAGE PROMPT FOOTER
   printFiles(PRODUCTION_INPUT.files);
   footerPrompt(refreshColor, "🔄 FORM HAS BEEN REFRESHED!");
-} 
- 
-
- 
+}
 
 
- 
+
+
+
