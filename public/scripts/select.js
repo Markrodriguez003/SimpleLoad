@@ -105,9 +105,6 @@ for (var y = 0; y < author.length; y++) {
 }
 
 /*
-
-
-
 const author = [
   "Mark Rodriguez",
   "dick mcgreenie",

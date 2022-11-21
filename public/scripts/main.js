@@ -87,7 +87,7 @@ window.onload = function () {
         downloadCsvBtn.style.display = "block";
 
         // CHANGES COLOR TO GREEN IF DOWNLOAD PRODUCTION LOAD FILE BUTTON
-        downloadCsvBtn.style.backgroundColor = "green";
+        downloadCsvBtn.style.backgroundColor = "rgba(1, 124, 4,1)";
       } else {
         console.log("FORM DID NOT VALIDATE!");
       }
