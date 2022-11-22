@@ -3,10 +3,6 @@
 // https://www.geeksforgeeks.org/how-to-create-and-download-csv-file-in-javascript/
 // https://stackoverflow.com/questions/4617935/is-there-a-way-to-include-commas-in-csv-columns-without-breaking-the-formatting
 
-// const { resolve } = require("path");
-// const path = require("path");
-// const fs = require("fs");
-
 export default function formatCSV(formData, files) {
   var cvsHeaders = [
     "filepath", // FILES

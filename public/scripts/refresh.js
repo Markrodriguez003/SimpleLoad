@@ -45,8 +45,7 @@ export default function refresh(e) {
   // TURNS ON DOWNLOAD PRODUCTION LOAD FILE BUTTON
   DOWNLOADCSV.style.display = "none";
   LOADBUTTON.style.display = "block";
-
-
+  
   //CALLS MESSAGE PROMPT FOOTER
   printFiles(PRODUCTION_INPUT.files);
   footerPrompt(refreshColor, "🔄 FORM HAS BEEN REFRESHED!");
