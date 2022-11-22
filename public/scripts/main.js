@@ -8,6 +8,9 @@
 //https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
 
+// ATTRIBUTIONS
+console.log("Program icons provided by https://icons8.com")
+
 // SCRIPTS
 //********************************************************* */
 

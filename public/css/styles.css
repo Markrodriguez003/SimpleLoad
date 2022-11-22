@@ -34,11 +34,6 @@ label {
   font-weight: bold;
 }
 
-.svg-icon {
-  transform: scale(0.1);
-  margin: 0;
-  padding: 0;
-}
 
 /* ************************************ */
 /* PRINT AREA FOR INDIVIDUAL FILES UPLOADED  */
@@ -108,7 +103,7 @@ label {
 }
 
 .file-img{
-  transform:scale(0.4);
+  transform:scale(0.7);
   
     
 }

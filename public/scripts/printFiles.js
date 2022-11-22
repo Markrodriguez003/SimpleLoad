@@ -1,16 +1,8 @@
 // PRINTING FILES TO BROWSER
-//REFERENCES
-//https://www.youtube.com/watch?v=wmp18_OiRLk&ab_channel=CodingShiksha
-
-// const app = required('electron');
-// import {app} from "electron"
-// const userHomePath = app.getPath('home');
-// `<object data="./public/images/icons/folder-outline.svg" style="transform:scale(0.1)" "width="300" height="300"> </object>`
 
 const contentMsg = document.getElementById("contentMsg");
 const output = document.getElementById("file-menu-load");
 const downArrow = document.getElementById("down-arrow");
-
 
 // BRINGS IN FILE TYPE ICON RETURN
 import fileTypeAssign from "../scripts/fileTypeAssign.js"
@@ -24,8 +16,8 @@ export default function printFiles(files) {
       
       // GRABS FILE TYPE AND SENDS IT TO FILETYPEASSIGN FUNC TO GRAB FILE TYPE ICON
       li.appendChild(fileTypeAssign(files[i].name));
-      li.appendChild(document.createTextNode(`${files[i].webkitRelativePath}`));
-      li.appendChild(document.createTextNode(`${files[i].size}`));
+      li.appendChild(document.createTextNode(`${files[i].webkitRelativePath} `));
+      // li.appendChild(document.createTextNode(`${files[i].size}`));
       output.appendChild(li);
     }
     contentMsg.style.display = "none";
