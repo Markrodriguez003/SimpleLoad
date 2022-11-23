@@ -1,11 +1,11 @@
 export default function fileTypeAssign(file) {
   var imgItem = document.createElement("img");
-  console.log("The file type is: " + file);
+  // console.log("The file type is: " + file);
 
   imgItem.setAttribute("class", "file-img");
 
   // Add a way of evaulating filetypes that are 1 & 2 syllable file extensions like "r" and "py"
-  switch (file.slice(-4)) {
+  switch (file.slice(-4).toLowerCase()) {
     case ".pdf":
       imgItem.setAttribute("src", "./public/images/icons/png/pdf.png");
       break;
