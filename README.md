@@ -1,4 +1,4 @@
-# Simple-Load - Legal document platform repo load file generator
+# Simple-Load - Legal document platform load file generator
 
 This application helps users create a load file for most legal document platforms (CSDisco, Relativity, GoldFynch).  
 
